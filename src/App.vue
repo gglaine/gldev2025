@@ -12,25 +12,6 @@
     </a>
   </section>
 
-  <!-- About Section -->
-  <section class="bg-gray-900 py-24 text-white text-left px-6 md:px-12 max-w-4xl mx-auto">
-    <h2 class="text-4xl font-bold mb-6">Mon approche</h2>
-    <p class="text-xl mb-4">
-      Je donne forme aux idées. Je crée des expériences numériques à la fois utiles, élégantes et engageantes. J’aide les marques et les équipes à transformer des visions complexes en produits simples, performants et humains.
-    </p>
-    <p class="text-xl mb-4">
-      Mon obsession ? Le bon équilibre entre technologie et émotion. Mon approche ? Créative, technique, rigoureuse. Mon moteur ? L’envie de bâtir des choses qui ont un vrai impact.
-    </p>
-  </section>
-
-  <!-- Current Focus -->
-  <section class="bg-gray-800 py-24 text-white text-center">
-    <h2 class="text-4xl font-bold mb-6">Ce que je fais en ce moment</h2>
-    <p class="text-xl mb-2">🎯 Freelance UI/UX & Creative Dev pour des startups ambitieuses</p>
-    <p class="text-xl mb-2">🧠 Recherche sur les interfaces augmentées et l’IA générative</p>
-    <p class="text-xl">🎥 Contenu vidéo & projets expérimentaux autour du design, du code et de la narration</p>
-  </section>
-
   <!-- Story Timeline -->
   <section v-for="(story, index) in storyTimeline" :key="index" class="story-section h-screen flex flex-col justify-center items-start text-white p-12 relative bg-gray-800">
     <div class="max-w-4xl mx-auto">
@@ -48,34 +29,7 @@
     </div>
   </section>
 
-  <!-- Testimonials Section -->
-  <section class="testimonials py-24 bg-gray-800 text-white">
-    <div class="container mx-auto px-6">
-      <h2 class="text-5xl font-bold text-left mb-12">Ils Parlent de Moi</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div v-for="(testimonial, index) in testimonials" :key="index" class="p-6 bg-gray-900 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-          <p class="text-lg italic">"{{ testimonial.quote }}"</p>
-          <div class="mt-4 font-bold text-lg">{{ testimonial.author }}</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact py-24 bg-gray-900 text-white">
-    <div class="container mx-auto px-6 text-left">
-      <h2 class="text-5xl font-bold mb-6">Discutons de votre projet</h2>
-      <p class="text-lg font-light mb-6">Prêt à transformer votre idée en réalité ? Contactez-moi.</p>
-      <form class="max-w-lg mx-auto">
-        <input type="text" placeholder="Nom" class="w-full p-3 mb-4 bg-gray-800 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all" />
-        <input type="email" placeholder="Email" class="w-full p-3 mb-4 bg-gray-800 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all" />
-        <textarea placeholder="Parlez-moi de votre projet..." class="w-full p-3 mb-4 bg-gray-800 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all"></textarea>
-        <button type="submit" class="px-6 py-3 text-lg font-semibold bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg hover:from-cyan-600 hover:to-blue-700 transition">
-          Envoyer
-        </button>
-      </form>
-    </div>
-  </section>
 </template>
 
 <script setup>
