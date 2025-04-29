@@ -29,6 +29,80 @@
     </div>
   </section>
 
+  <div class="relative w-full max-w-lg">
+      <!-- Success Message -->
+      <div
+        v-if="success"
+        class="absolute top-0 left-0 right-0 bg-green-500 text-white text-center py-3 rounded-t-2xl"
+      >
+        🎉 Thank you! Your message has been sent.
+      </div>
+
+      <!-- Contact Form -->
+      <form 
+        v-else
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        action="?success=true"
+        class="bg-white/10 backdrop-blur-lg shadow-2xl rounded-2xl p-8 space-y-6 border border-white/20"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+
+        <div class="text-center space-y-2">
+          <h1 class="text-3xl font-extrabold text-white">Let's Build Something Great</h1>
+          <p class="text-gray-300 text-sm">Projects, collaborations, or crazy ideas — I'm all ears.</p>
+        </div>
+
+        <div class="space-y-4">
+          <div>
+            <label class="block mb-1 text-sm font-medium text-gray-300" for="name">Your Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              placeholder="Elon Musk"
+              class="w-full p-3 bg-white/20 text-white placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div>
+            <label class="block mb-1 text-sm font-medium text-gray-300" for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="you@amazingstartup.com"
+              class="w-full p-3 bg-white/20 text-white placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div>
+            <label class="block mb-1 text-sm font-medium text-gray-300" for="message">Tell me about your project</label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="5"
+              placeholder="I'm launching an app and need a sleek landing page + branding."
+              class="w-full p-3 bg-white/20 text-white placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            ></textarea>
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-md transition duration-300"
+        >
+          🚀 Let's Talk
+        </button>
+      </form>
+      <div v-if="success" class="fixed top-5 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-xl shadow-lg z-50">
+  🎉 Merci ! Votre message a bien été envoyé.
+</div>
+    </div>
 
 </template>
 
@@ -183,7 +257,29 @@ const storyTimeline = ref([
 // This will collect each "story-section" DOM element
 const storyRefs = ref([]);
 
+// Success message logic
+const success = ref(false);
+const showSuccess = ref(false);
 onMounted(() => {
+
+  // Detect ?success=true in URL
+  if (window.location.search.includes('success=true')) {
+    success.value = true;
+    showSuccess.value = true;
+
+    // After 3s → fade out
+    setTimeout(() => {
+      showSuccess.value = false;
+    }, 3000);
+
+    // After 4s → remove `?success=true` from URL
+    setTimeout(() => {
+      const url = new URL(window.location);
+      url.searchParams.delete('success');
+      window.history.replaceState({}, '', url);
+    }, 4000);
+  }
+
   storyRefs.value.forEach((section) => {
     const heading = section.querySelector('h2');
     const paragraph = section.querySelector('p');
