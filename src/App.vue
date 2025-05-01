@@ -151,68 +151,74 @@
     >
       🎉 Merci ! Votre message a bien été envoyé.
     </div>
+<!-- Formulaire de contact -->
+<form 
+  v-else
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  action="?success=true"
+  class="bg-white/5 w-full backdrop-blur-lg shadow-2xl rounded-2xl p-8 space-y-6 border border-white/10"
+>
+  <!-- Champs cachés requis par Netlify -->
+  <input type="hidden" name="form-name" value="contact" />
+  <input type="text" name="bot-field" style="display:none" />
 
-    <!-- Formulaire de contact -->
-    <form 
-      v-else
-      name="contact"
-      method="POST"
-      data-netlify="true"
-      action="?success=true"
-      class="bg-white/5 w-full backdrop-blur-lg shadow-2xl rounded-2xl p-8 space-y-6 border border-white/10"
-    >
-      <input type="hidden" name="form-name" value="contact" />
+  <!-- Titre et description -->
+  <div class="text-center space-y-2">
+    <h2 class="text-3xl font-extrabold text-white">Discutons de votre projet</h2>
+    <p class="text-gray-300 text-sm">Un besoin, une idée, une envie de collaborer ? Je vous écoute.</p>
+  </div>
 
-      <div class="text-center space-y-2">
-        <h2 class="text-3xl font-extrabold text-white">Discutons de votre projet</h2>
-        <p class="text-gray-300 text-sm">Un besoin, une idée, une envie de collaborer ? Je vous écoute.</p>
-      </div>
+  <!-- Champs du formulaire -->
+  <div class="space-y-4">
+    <div>
+      <label class="block mb-1 text-sm font-medium text-gray-300" for="name">Votre nom</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        placeholder="Jean Dupont"
+        class="w-full p-3 bg-white/10 text-white placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"
+      />
+    </div>
 
-      <div class="space-y-4">
-        <div>
-          <label class="block mb-1 text-sm font-medium text-gray-300" for="name">Votre nom</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            placeholder="Jean Dupont"
-            class="w-full p-3 bg-white/10 text-white placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"
-          />
-        </div>
+    <div>
+      <label class="block mb-1 text-sm font-medium text-gray-300" for="email">Adresse e-mail</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        placeholder="vous@startup.com"
+        class="w-full p-3 bg-white/10 text-white placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"
+      />
+    </div>
 
-        <div>
-          <label class="block mb-1 text-sm font-medium text-gray-300" for="email">Adresse e-mail</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            placeholder="vous@startup.com"
-            class="w-full p-3 bg-white/10 text-white placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"
-          />
-        </div>
+    <div>
+      <label class="block mb-1 text-sm font-medium text-gray-300" for="message">Votre message</label>
+      <textarea
+        id="message"
+        name="message"
+        required
+        rows="5"
+        placeholder="Parlez-moi de votre projet, vos besoins ou vos idées."
+        class="w-full p-3 bg-white/10 text-white placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"
+      ></textarea>
+    </div>
+  </div>
 
-        <div>
-          <label class="block mb-1 text-sm font-medium text-gray-300" for="message">Votre message</label>
-          <textarea
-            id="message"
-            name="message"
-            required
-            rows="5"
-            placeholder="Parlez-moi de votre projet, vos besoins ou vos idées."
-            class="w-full p-3 bg-white/10 text-white placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"
-          ></textarea>
-        </div>
-      </div>
+  <!-- Bouton -->
+  <button
+    type="submit"
+    class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-bold py-3 rounded-md transition duration-300 transform hover:scale-105"
+  >
+    ✉️ Envoyer le message
+  </button>
+</form>
 
-      <button
-        type="submit"
-        class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-bold py-3 rounded-md transition duration-300 transform hover:scale-105"
-      >
-        ✉️ Envoyer le message
-      </button>
-    </form>
   </div>
 </section>
 
