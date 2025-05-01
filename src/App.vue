@@ -1,108 +1,222 @@
 <template>
   <!-- Hero Section -->
-  <section class="hero w-full h-screen flex flex-col justify-center items-center text-white text-center relative overflow-hidden">
-    <div class="relative z-20 max-w-8xl px-8">
-      <h1 class="text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-800 to-green-500 mask-text animate-fade-in">
-        Hello, I'm <span class="text-cyan-400">gUI</span>
+  <section class="hero w-full h-screen flex flex-col justify-center items-center text-white text-center relative bg-black overflow-hidden">
+    <ParticlesBackground class="absolute inset-0 z-0" />
+    <div class="relative z-10 px-6 max-w-4xl mx-auto">
+      <h1 class="text-6xl sm:text-7xl md:text-8xl font-black tracking-tight leading-tight text-transparent bg-clip-text bg-gradient-to-br from-cyan-300 via-blue-500 to-purple-600 drop-shadow-lg">
+        Bonjour, moi c’est <span class="text-cyan-400">gUI</span>
       </h1>
-      <h3 class="mt-4 text-xl font-light">I design. I build. I craft digital experiences.</h3>
+      <p class="mt-6 text-xl sm:text-2xl text-gray-200 font-light tracking-wide max-w-xl mx-auto">
+        Designer UI, développeur front-end & créatif hybride. J’aide les marques, startups et studios à donner vie à leurs idées avec du code, du design, et un soupçon d’IA.
+      </p>
     </div>
-    <a href="#contact" class="absolute bottom-12 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-cyan-600 hover:to-blue-700 transition-all transform hover:scale-105 animate-bounce">
-      Let’s Work Together
+    <a
+      href="#contact"
+      class="mt-12 sm:mt-20 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 px-8 py-4 rounded-full text-lg font-semibold shadow-lg transition-all duration-300 transform hover:scale-105 z-10 animate-bounce"
+    >
+      🚀 Discutons de votre projet
     </a>
   </section>
 
-  <!-- Story Timeline -->
-  <section v-for="(story, index) in storyTimeline" :key="index" class="story-section h-screen flex flex-col justify-center items-start text-white p-12 relative bg-gray-800">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-5xl font-extrabold mb-8">
-        <InkText :targetText="story.title" :fadeSpeed="1000" :delay="0" gradientClass="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500" />
-      </h2>
-      <p class="text-2xl font-light mb-12">{{ story.description }}</p>
-      <div class="mb-8">
-        <div class="flex flex-wrap gap-2 skills">
-          <span v-for="(skill, j) in story.skills" :key="j" class="text-cyan-500 border border-cyan-400 px-3 py-1 rounded-lg text-sm flex items-center gap-2 hover:bg-cyan-400 hover:text-white transition-colors">
-            <span>#{{ skill.name }}</span>
-          </span>
+  <!-- À propos -->
+  <section class="bg-gray-900 text-white py-20 px-6">
+    <div class="max-w-4xl mx-auto text-center space-y-6">
+      <h2 class="text-4xl font-bold">Un profil hybride au service de vos idées</h2>
+      <p class="text-lg text-gray-300">
+        Je combine <strong>design, développement</strong> et <strong>technologies créatives</strong> pour transformer vos idées en produits digitaux uniques.
+        Que ce soit pour une landing page percutante, une interface intuitive, une stratégie IA ou une animation qui capte l’attention, je vous accompagne de la discovery à la livraison.
+      </p>
+    </div>
+  </section>
+
+  <!-- Offres spécialisées -->
+  <section class="bg-black text-white py-20 px-6">
+    <div class="max-w-5xl mx-auto space-y-16">
+      <h2 class="text-3xl font-bold text-center">Ce que je peux faire pour vous</h2>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h3 class="text-xl font-semibold mb-2">Automatisations & IA</h3>
+          <p class="text-gray-300">Scripts personnalisés, intégration d'outils IA (ChatGPT, Stable Diffusion, Whisper) pour booster vos workflows et votre contenu.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2">E-commerce artisanal</h3>
+          <p class="text-gray-300">Sites Shopify ou sur mesure (Vue/Stripe/Firebase), pensés pour la conversion, l'esthétique et l'agilité de gestion.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2">Montage & vidéo</h3>
+          <p class="text-gray-300">Motion design, montage immersif, voix off, deepfakes, reels, habillage vidéo et narrations envoû tantes pour vos contenus sociaux ou produits.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2">Créativité éditoriale</h3>
+          <p class="text-gray-300">Idéation de concepts de campagne, direction artistique, textes et storytelling sur-mesure pour marquer les esprits.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="relative w-full max-w-lg">
-      <!-- Success Message -->
-      <div
-        v-if="success"
-        class="absolute top-0 left-0 right-0 bg-green-500 text-white text-center py-3 rounded-t-2xl"
-      >
-        🎉 Thank you! Your message has been sent.
+  <!-- Projets -->
+<!-- Projets -->
+<section class="bg-gray-900 py-20 px-6 text-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-12">Projets récents</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div class="bg-gray-800 rounded-lg p-6 shadow-md hover:scale-105 transition">
+        <img src="/images/pototop-snap.png" alt="Pototop" class="mb-4 rounded" />
+        <h3 class="text-xl font-semibold mb-2">Pototop.fr <span class="text-sm text-gray-400">(2025)</span></h3>
+        <p class="text-sm text-gray-300">
+          Création d’un mini-site vitrine, montage vidéo, stratégie réseaux sociaux (Instagram), accompagnement contenu et image.
+        </p>
       </div>
 
-      <!-- Contact Form -->
-      <form 
-        v-else
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        action="?success=true"
-        class="bg-white/10 backdrop-blur-lg shadow-2xl rounded-2xl p-8 space-y-6 border border-white/20"
-      >
-        <input type="hidden" name="form-name" value="contact" />
+      <div class="bg-gray-800 rounded-lg p-6 shadow-md hover:scale-105 transition">
+        <img src="/images/antishirt-snap.png" alt="AntiShirt" class="mb-4 rounded" />
+        <h3 class="text-xl font-semibold mb-2">AntiShirt.fr <span class="text-sm text-gray-400">(2025)</span></h3>
+        <p class="text-sm text-gray-300">
+          Micro-boutique en ligne développée avec Vue, Firestore & Stripe. Direction artistique, développement front, automatisations IA.
+        </p>
+      </div>
 
-        <div class="text-center space-y-2">
-          <h1 class="text-3xl font-extrabold text-white">Let's Build Something Great</h1>
-          <p class="text-gray-300 text-sm">Projects, collaborations, or crazy ideas — I'm all ears.</p>
-        </div>
+      <div class="bg-gray-800 rounded-lg p-6 shadow-md hover:scale-105 transition">
+        <img src="/images/mediaclasse-snap.png" alt="MediaClasse" class="mb-4 rounded" />
+        <h3 class="text-xl font-semibold mb-2">MediaClasse.fr <span class="text-sm text-gray-400">(2016)</span></h3>
+        <p class="text-sm text-gray-300">
+          Application fullstack co-développée chez Le Wagon en Ruby on Rails. Aujourd’hui, site très populaire avec +120k abonnés YouTube.
+        </p>
+      </div>
 
-        <div class="space-y-4">
-          <div>
-            <label class="block mb-1 text-sm font-medium text-gray-300" for="name">Your Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-              placeholder="Elon Musk"
-              class="w-full p-3 bg-white/20 text-white placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
+      <div class="bg-gray-800 rounded-lg p-6 shadow-md hover:scale-105 transition">
+        <img src="/images/funcenter-snap.png" alt="Fun Center" class="mb-4 rounded" />
+        <h3 class="text-xl font-semibold mb-2">Fun Center <span class="text-sm text-gray-400">(2020–2025)</span></h3>
+        <p class="text-sm text-gray-300">
+          Site vitrine moderne pour centre nautique. Plusieurs refontes, ajout de vidéo d’accueil, intégration Tailwind & système de réservation.
+        </p>
+      </div>
 
-          <div>
-            <label class="block mb-1 text-sm font-medium text-gray-300" for="email">Email Address</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              placeholder="you@amazingstartup.com"
-              class="w-full p-3 bg-white/20 text-white placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
+      <div class="bg-gray-800 rounded-lg p-6 shadow-md hover:scale-105 transition">
+        <img src="/images/storia-snap.png" alt="Storia TV" class="mb-4 rounded" />
+        <h3 class="text-xl font-semibold mb-2">Storia Télévision <span class="text-sm text-gray-400">(2018)</span></h3>
+        <p class="text-sm text-gray-300">
+          Conception et déploiement du premier site officiel pour le groupe audiovisuel. Design original, site responsive, hébergement inclus.
+        </p>
+      </div>
 
-          <div>
-            <label class="block mb-1 text-sm font-medium text-gray-300" for="message">Tell me about your project</label>
-            <textarea
-              id="message"
-              name="message"
-              required
-              rows="5"
-              placeholder="I'm launching an app and need a sleek landing page + branding."
-              class="w-full p-3 bg-white/20 text-white placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            ></textarea>
-          </div>
-        </div>
+      <div class="bg-gray-800 rounded-lg p-6 shadow-md hover:scale-105 transition">
+        <img src="/images/slaps-snap.png" alt="Slaps" class="mb-4 rounded" />
+        <h3 class="text-xl font-semibold mb-2">Slaps <span class="text-sm text-gray-400">(2017)</span></h3>
+        <p class="text-sm text-gray-300">
+          Refonte complète du site et ajout de nouvelles fonctionnalités. Travail de design, intégration responsive et SEO technique.
+        </p>
+      </div>
 
-        <button
-          type="submit"
-          class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-md transition duration-300"
-        >
-          🚀 Let's Talk
-        </button>
-      </form>
-      <div v-if="success" class="fixed top-5 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-xl shadow-lg z-50">
-  🎉 Merci ! Votre message a bien été envoyé.
-</div>
     </div>
+  </div>
+</section>
+
+
+  <!-- Témoignages -->
+  <section class="bg-black text-white py-20 px-6">
+    <div class="max-w-4xl mx-auto text-center space-y-10">
+      <h2 class="text-3xl font-bold">Ce qu’on dit de moi</h2>
+      <blockquote class="text-lg italic text-gray-300">"Un travail exceptionnel, à l’écoute et super réactif !" — <span class="text-white font-medium">Mathieu (StoryEngines)</span></blockquote>
+      <blockquote class="text-lg italic text-gray-300">"Pleinement satisfait du travail de Guillaume, nous collaborons depuis 4ans et souhaitons bien évidemment poursuivre sur cette voie" — <span class="text-white font-medium">Benjamin (funcenter-lacduder)</span></blockquote>
+      <blockquote class="text-lg italic text-gray-300">"Nous avons entièrement refait notre site internet avec l'aide de Guillaume. Il a été très réactif et compétent.
+        Je recommande !" — <span class="text-white font-medium">Tancrède (Slaps)</span></blockquote>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="bg-gray-950 text-white py-20 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-12">Comment je travaille</h2>
+      <div class="grid md:grid-cols-4 gap-6 text-left text-sm text-gray-300">
+        <div><h3 class="text-white font-semibold mb-2">1. Discovery</h3><p>Comprendre vos besoins, vos clients, votre vision.</p></div>
+        <div><h3 class="text-white font-semibold mb-2">2. Prototype</h3><p>Créer des wireframes ou des maquettes claires et engageantes.</p></div>
+        <div><h3 class="text-white font-semibold mb-2">3. Production</h3><p>Développer un produit fonctionnel, rapide et responsive.</p></div>
+        <div><h3 class="text-white font-semibold mb-2">4. Livraison</h3><p>Optimiser, livrer, accompagner, mesurer les résultats.</p></div>
+      </div>
+    </div>
+  </section>
+
+
+
+<!-- Contact -->
+<section id="contact" class="bg-gradient-to-br from-gray-950 via-black to-gray-900 py-20 px-6 text-white">
+  <div class="max-w-2xl w-full mx-auto relative">
+    
+    <!-- Message de succès -->
+    <div
+      v-if="success"
+      class="absolute top-0 left-0 right-0 bg-green-500 text-white text-center py-3 rounded-t-2xl z-10 shadow-lg"
+    >
+      🎉 Merci ! Votre message a bien été envoyé.
+    </div>
+
+    <!-- Formulaire de contact -->
+    <form 
+      v-else
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      action="?success=true"
+      class="bg-white/5 w-full backdrop-blur-lg shadow-2xl rounded-2xl p-8 space-y-6 border border-white/10"
+    >
+      <input type="hidden" name="form-name" value="contact" />
+
+      <div class="text-center space-y-2">
+        <h2 class="text-3xl font-extrabold text-white">Discutons de votre projet</h2>
+        <p class="text-gray-300 text-sm">Un besoin, une idée, une envie de collaborer ? Je vous écoute.</p>
+      </div>
+
+      <div class="space-y-4">
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-300" for="name">Votre nom</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="Jean Dupont"
+            class="w-full p-3 bg-white/10 text-white placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"
+          />
+        </div>
+
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-300" for="email">Adresse e-mail</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="vous@startup.com"
+            class="w-full p-3 bg-white/10 text-white placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"
+          />
+        </div>
+
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-300" for="message">Votre message</label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            rows="5"
+            placeholder="Parlez-moi de votre projet, vos besoins ou vos idées."
+            class="w-full p-3 bg-white/10 text-white placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"
+          ></textarea>
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-bold py-3 rounded-md transition duration-300 transform hover:scale-105"
+      >
+        ✉️ Envoyer le message
+      </button>
+    </form>
+  </div>
+</section>
+
+
 
 </template>
 
