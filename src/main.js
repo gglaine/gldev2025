@@ -1,6 +1,11 @@
 import { createApp } from 'vue'
-import './style.css'
 import App from './App.vue'
-import { revealDirective } from './directives/revealDirective';
+import router from './router'
+import { createHead } from '@vueuse/head'
+import './style.css'
 
-createApp(App).mount('#app')
+
+const app = createApp(App)
+app.use(router)
+app.use(createHead())
+app.mount('#app')
