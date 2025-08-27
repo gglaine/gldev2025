@@ -1,30 +1,49 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gui.Laine </title>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1TCXMRK148"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <title>Guillaume Lainé - Digital Designs</title>
 
-  gtag('config', 'G-1TCXMRK148');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TCXMRK148"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1TCXMRK148');
+    </script>
+
+    <!-- CAPTCHA: use ONE provider -->
+    <!-- hCaptcha (recommended) -->
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+    <!-- If you use reCAPTCHA instead, remove the line above and add: -->
+    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
   </head>
+
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
-    <!-- Formulaire caché pour que Netlify détecte le formulaire Vue -->
-<form name="contact" netlify netlify-honeypot="bot-field" hidden>
-  <input type="text" name="name" />
-  <input type="email" name="email" />
-  <textarea name="message"></textarea>
-  <input type="text" name="bot-field" />
-</form>
 
+    <!-- Hidden reference form so Netlify detects it in a SPA -->
+    <!-- Keep field names exactly in sync with ContactForm.vue -->
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      data-netlify-hcaptcha="true"
+      hidden
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="text"   name="name" />
+      <input type="email"  name="email" />
+      <textarea            name="message"></textarea>
+      <!-- Honeypot must match the attribute above -->
+      <input type="text"   name="bot-field" />
+      <!-- Optional human dwell-time field -->
+      <input type="hidden" name="ts" value="" />
+    </form>
   </body>
 </html>

@@ -1,157 +1,270 @@
 <template>
-  <main class="text-slate-800 bg-white ">
+  <main class="text-slate-800 bg-white antialiased">
 
     <!-- HERO -->
-<section class="hero w-full h-screen flex flex-col justify-center items-center text-center relative overflow-hidden">
-  <!-- BACKGROUND -->
-  <div class="absolute inset-0 z-0 bg-gradient-to-br from-black via-slate-900 to-neutral-800"></div>
-  <div class="absolute top-0 left-1/2 w-[120%] h-[120%] bg-gradient-radial from-cyan-500/5 via-blue-500/10 to-transparent animate-pulse-slow blur-3xl opacity-50"></div>
+    <section
+      class="hero relative overflow-hidden w-full min-h-[100svh] flex flex-col justify-center items-center text-center"
+      aria-label="Présentation"
+    >
+      <div class="absolute inset-0 z-0 bg-gradient-to-br from-white via-slate-50 to-slate-100"></div>
 
-  <!-- TEXT BLOCK -->
-  <div class="relative z-10 px-6 max-w-5xl mx-auto space-y-6 animate-fade-in-up">
-    <p class="text-sm uppercase tracking-widest text-cyan-400 font-semibold">
-      Design. Code. IA. Vision produit.
-    </p>
+      <div class="relative z-10 px-6 max-w-5xl mx-auto space-y-6 motion-safe:animate-[fadeInUp_700ms_ease]">
+        <!-- credibility stamp -->
+        <div class="flex items-center justify-center gap-2">
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-cyan-100 text-cyan-700 ring-1 ring-cyan-300/60">
+            🚀 From Idea → Live in Weeks
+          </span>
+          <span class="hidden sm:inline text-xs text-slate-500">Identity · UX/UI · Code · Launch</span>
+        </div>
 
-<h1 class="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-tight text-transparent bg-clip-text bg-gradient-to-br from-cyan-300 via-blue-500 to-purple-600 drop-shadow-md">
-  Je conçois des sites et des outils <span class="underline decoration-cyan-400">qui simplifient le travail</span>
-</h1>
+        <!-- motto -->
+        <h1
+          class="text-balance text-4xl sm:text-6xl md:text-7xl font-black leading-tight tracking-tight
+                 text-transparent bg-clip-text bg-gradient-to-br from-slate-900 via-slate-800 to-slate-600
+                 drop-shadow-[0_1px_0_rgba(0,0,0,0.06)]"
+        >
+          ⚡ Not an Agency. Not a Coder.<br class="hidden sm:block" />
+          <span class="underline decoration-cyan-600/60 underline-offset-4">A Craftsman who ships your vision.</span>
+        </h1>
 
-<p class="mt-6 text-xl sm:text-2xl text-gray-300 font-light tracking-wide max-w-xl mx-auto">
-  Pour les solo-founders, studios ou équipes légères : je construis vos briques digitales, sur mesure, sans blabla.
-</p>
-
-    <!-- CTA -->
-    <div class="mt-8 flex flex-wrap justify-center gap-4">
-      <a href="#contact" class="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 px-6 py-3 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105">
-        🚀 Discutons ensemble
-      </a>
-      <a href="#work" class="text-cyan-400 hover:underline text-lg font-medium">
-        Voir mes projets
-      </a>
-    </div>
-  </div>
-
-  <!-- SCROLL CUE -->
-  <div class="absolute bottom-6 z-10 text-white/60 text-xs animate-bounce hidden sm:block">
-    ▼ Scrollez pour explorer
-  </div>
-</section>
-
-     <section class="py-24 px-6 bg-slate-150 text-slate-900 text-center">
-      <div class="max-w-5xl mx-auto">
-        <h2 class="text-4xl font-bold mb-6">Omakaze</h2>
-        <p class="text-gray-400 max-w-2xl mx-auto mb-12">
-          Vous avez une idée, un besoin, une frustration ? Choisissez la carte qui vous parle.<br />
-          Je m’occupe du reste. Design, code, contenu… tout est inclus.
+        <p class="mt-3 sm:mt-4 text-pretty text-base sm:text-xl text-slate-600 font-light tracking-wide max-w-2xl mx-auto">
+          Je clarifie votre vision et je la construis brique par brique : identité, interfaces, code et mise en ligne — sans blabla.<br>
+          <span class="text-sm text-slate-500">For solo-founders, studios or lean teams: a coherent, custom build that feels like <em>you</em>, not like a template.</span>
         </p>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <OmakazeCard 
-            title="🖼️ J’ai besoin d’un logo" 
-            description="Un logo clair, original, adapté à votre secteur et prêt pour tous vos supports (site, print, réseaux)." 
-            price="À partir de 350 €" />
+        <!-- CTA -->
+        <div class="mt-8 flex flex-wrap justify-center gap-3 sm:gap-4">
+          <a
+            href="#contact"
+            class="inline-flex items-center justify-center rounded-full px-6 py-3 text-base sm:text-lg font-semibold text-white
+                   bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700
+                   focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white
+                   transition-transform duration-200 will-change-transform hover:scale-[1.03] active:scale-[0.99]"
+          >
+            🚀 Discutons ensemble<br><span class="text-xs font-normal pl-1">Let’s talk</span>
+          </a>
 
-          <OmakazeCard 
-            title="🌐 J’ai besoin d’un site vitrine" 
-            description="Landing page responsive, rapide & bien référencée." 
-            price="À partir de 800 €" />
+          <a
+            href="#work"
+            class="inline-flex items-center justify-center rounded-full px-5 py-3 text-base sm:text-lg font-medium
+                   text-cyan-800 hover:text-cyan-900 ring-1 ring-cyan-700/20 hover:ring-cyan-700/30
+                   bg-white hover:bg-cyan-50
+                   focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white transition"
+          >
+            Voir mes projets<br><span class="text-xs font-normal pl-1">See my work</span>
+          </a>
+        </div>
 
-          <OmakazeCard 
-            title="🛒 Je veux vendre un produit" 
-            description="Page de vente avec branding, copywriting, paiement et SEO." 
-            price="À partir de 900 €" />
+        <!-- soft risk-reversal -->
+        <p class="text-xs text-slate-500 mt-2">
+          Réponse sous 24h · Paris & Remote · Facturation claire par paliers
+        </p>
+      </div>
 
-          <OmakazeCard 
-            title="📈 Je veux être mieux référencé" 
-            description="Audit SEO + optimisation on-page pour Google et visiteurs." 
-            price="À partir de 500 €" />
+      <div class="absolute bottom-6 z-10 hidden sm:flex flex-col items-center text-slate-500 text-xs">
+        <span class="mb-1">Scrollez<br><span class="text-[10px]">Scroll down</span></span>
+        <span class="animate-bounce">▼</span>
+      </div>
+    </section>
 
-          <OmakazeCard 
-            title="🔍 Je veux connaître mes clients" 
-            description="Mise en place d’un tracking clair (GA4, Hotjar, dashboards)." 
-            price="À partir de 300 €" />
-
-          <OmakazeCard 
-            title="⚙️ J’ai besoin d’un outil sur mesure" 
-            description="Création d’une micro-app ou d’un outil interne pour votre activité." 
-            price="À partir de 1000 €" />
+    <!-- ANTI-TEMPLATE / ANTI-AGENCY STRIP -->
+    <section class="px-6 py-12 bg-white">
+      <div class="max-w-screen-xl mx-auto">
+        <div class="grid sm:grid-cols-3 gap-4">
+          <div class="p-5 rounded-2xl ring-1 ring-slate-200 bg-slate-50">
+            <h3 class="font-semibold text-slate-800">Template</h3>
+            <p class="mt-2 text-sm text-slate-600">Rapide & pas cher, mais impersonnel.<br>Votre marque se dilue.</p>
+          </div>
+          <div class="p-5 rounded-2xl ring-1 ring-slate-200 bg-slate-50">
+            <h3 class="font-semibold text-slate-800">Agency</h3>
+            <p class="mt-2 text-sm text-slate-600">Process lourd, équipes séparées, coûteux.<br>La cohérence se perd.</p>
+          </div>
+          <div class="p-5 rounded-2xl ring-2 ring-cyan-300 bg-gradient-to-br from-cyan-50 to-white">
+            <h3 class="font-semibold text-slate-900">Craftsman</h3>
+            <p class="mt-2 text-sm text-slate-700">Une vision, du concept au code.<br>Identité unique, mise en ligne en semaines.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- PROJETS -->
-    <section id="work" class="py-20 px-6 text-slate-100">
-      <div class="max-w-screen-xl mx-auto space-y-20">
-        <h2 class="text-3xl font-bold text-center text-white">Réalisations</h2>
-
-        <!-- STORYENGINES -->
-        <div class="space-y-10">
-          <div class="flex flex-col md:flex-row justify-center items-start gap-6">
-            <div class="w-full md:w-[960px] h-[600px] bg-black rounded-xl overflow-hidden border border-gray-800 shadow-md shrink-0">
-              <img src="https://via.placeholder.com/960x600?text=StoryEngines+Preview" class="w-full h-full object-cover" alt="StoryEngines.tv Preview" />
-            </div>
-            <div class="text-left max-w-lg space-y-4">
-              <h3 class="text-2xl font-bold text-cyan-400">StoryEngines.tv</h3>
-              <p class="text-gray-400">
-                Site vitrine pour une société de production fondée par <strong>Mathieu Vandevelde</strong> (ex-Black Sheep). Design sobre, typographie cinématographique, logo sur-mesure.
-              </p>
-              <p class="text-sm text-gray-500 italic">
-                Vue.js · Tailwind · CMS Decap · Netlify Identity · SEO optimisé
-              </p>
-              <a href="https://www.storyengines.tv" target="_blank" class="text-cyan-400 hover:underline">Voir le site</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- FUNCENTER -->
-        <div class="space-y-10">
-          <div class="flex flex-col md:flex-row-reverse justify-center items-start gap-6">
-            <div class="w-full md:w-[960px] h-[600px] bg-black rounded-xl overflow-hidden border border-gray-800 shadow-md shrink-0">
-              <img src="https://via.placeholder.com/960x600?text=Funcenter+Preview" class="w-full h-full object-cover" alt="Funcenter Preview" />
-            </div>
-            <div class="text-left max-w-lg space-y-4">
-              <h3 class="text-2xl font-bold text-cyan-400">Funcenter-lacduder.com</h3>
-              <p class="text-gray-400">
-                Refonte complète du site d’un club nautique. Nouvelles vidéos montées, UI modernisée, formulaires personnalisés, refonte du logo.
-              </p>
-              <p class="text-sm text-gray-500 italic">
-                Vue.js · Tailwind · DaVinci · SEO avancé · Netlify CI/CD
-              </p>
-              <a href="https://www.funcenter-lacduder.com" target="_blank" class="text-cyan-400 hover:underline">Voir le site</a>
-            </div>
-          </div>
-        </div>
-
+    <!-- METHOD: BRICK BY BRICK -->
+    <section class="px-6 py-16 bg-gradient-to-b from-white via-slate-50 to-slate-100">
+      <div class="max-w-screen-xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl font-bold text-center text-slate-900">Méthode — brique par brique</h2>
+        <ol class="mt-8 grid md:grid-cols-4 gap-6">
+          <li class="p-5 rounded-xl ring-1 ring-slate-200 bg-white">
+            <span class="text-xs font-semibold text-cyan-700">1. Vision</span>
+            <h3 class="mt-1 font-semibold">Brand research</h3>
+            <p class="mt-2 text-sm text-slate-600">Ateliers rapides, ton de voix, promesse, angle.</p>
+          </li>
+          <li class="p-5 rounded-xl ring-1 ring-slate-200 bg-white">
+            <span class="text-xs font-semibold text-cyan-700">2. Identity</span>
+            <h3 class="mt-1 font-semibold">Logo & DA</h3>
+            <p class="mt-2 text-sm text-slate-600">Logo, palette, typographies, mini-charte.</p>
+          </li>
+          <li class="p-5 rounded-xl ring-1 ring-slate-200 bg-white">
+            <span class="text-xs font-semibold text-cyan-700">3. Interface</span>
+            <h3 class="mt-1 font-semibold">UX/UI & Protos</h3>
+            <p class="mt-2 text-sm text-slate-600">Wireframes, maquettes Figma, micro-interactions.</p>
+          </li>
+          <li class="p-5 rounded-xl ring-1 ring-slate-200 bg-white">
+            <span class="text-xs font-semibold text-cyan-700">4. Ship</span>
+            <h3 class="mt-1 font-semibold">Code & Launch</h3>
+            <p class="mt-2 text-sm text-slate-600">Vue/Tailwind, Stripe, SEO, déploiement Netlify.</p>
+          </li>
+        </ol>
       </div>
+    </section>
+
+    <!-- SERVICES (keep your section but now sits after method) -->
+    <ServicesSection :items="services" />
+
+    <!-- WORK -->
+    <section id="work" class="py-20 px-6 text-slate-800 bg-gradient-to-b from-white via-slate-50 to-slate-100">
+      <div class="max-w-screen-xl mx-auto space-y-10">
+        <header class="space-y-2">
+          <h2 class="text-3xl font-bold text-center text-slate-900">
+            Dernières réalisations<br><span class="text-base font-medium text-slate-600">Latest projects</span>
+          </h2>
+          <p class="text-center text-sm text-slate-600">
+            Prévisualisations en direct : faites défiler et interagissez. Cliquez pour ouvrir en plein écran.<br>
+            <span class="text-xs text-slate-500">Live previews: scroll and interact. Click to open full screen.</span>
+          </p>
+        </header>
+
+        <!-- TRUST / PROOF BAR -->
+        <div class="max-w-3xl mx-auto text-center">
+          <p class="text-sm text-slate-500">
+            Sélection : Storia Télévision (premium boutique look), Funcenter (refonte SEO + vidéos), Antishirt (identité → e-commerce).
+          </p>
+        </div>
+
+        <div class="space-y-20">
+          <CaseStudyRow v-for="p in projects" :key="p.title" :project="p" />
+        </div>
+
+        <!-- bottom CTA -->
+        <div class="pt-6 text-center">
+          <a href="#contact"
+             class="inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white bg-cyan-700 hover:bg-cyan-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600/70">
+            Démarrer un projet · Start your project
+          </a>
+          <p class="mt-2 text-xs text-slate-500">Devis clair sous 24h · Paliers Starter / Growth / Premium</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="scroll-mt-40 md:scroll-mt-48">
+      <Suspense>
+        <template #default>
+          <ContactForm />
+        </template>
+        <template #fallback>
+          <section class="max-w-2xl mx-auto px-6 py-16 text-center text-slate-500">
+            <div class="inline-flex items-center gap-2 animate-pulse">
+              <span class="h-4 w-4 rounded-full bg-slate-300"></span>
+              <span>Chargement du formulaire…</span>
+            </div>
+          </section>
+        </template>
+      </Suspense>
     </section>
 
   </main>
 </template>
 
 <script setup>
+import { defineAsyncComponent } from 'vue'
 import { useHead } from '@vueuse/head'
-import OmakazeCard from '../components/OmakazeCard.vue'
+import CaseStudyRow from '../components/CaseStudyRow.vue'
+import ServicesSection from '../components/ServicesSection.vue'
+
+const ContactForm = defineAsyncComponent(() => import('../components/ContactForm.vue'))
+
+const services = [
+  {
+    slug: 'developpement',
+    icon: '🧩',
+    title: 'Développement de sites web custom',
+    oneLiner: 'Vue 3 / Vite / Tailwind, CMS headless léger, Netlify CI/CD. Rapide, stable, SEO-friendly.',
+    bullets: ['Vitrines & e-commerce (Stripe / Guidap)', 'Images responsives, analytics', 'SEO technique & perfs web'],
+    details: 'Intégrations Stripe/Firestore, composants réutilisables, déploiements continus, mesures et optimisation progressive.'
+  },
+  {
+    slug: 'design',
+    icon: '🎨',
+    title: 'Design visuel',
+    oneLiner: 'Direction artistique, UI kits et micro-interactions sobres pour une interface claire et durable.',
+    bullets: ['Design system & composants', 'Maquettes responsives', 'Exports & guidelines'],
+    details: 'Grilles, hiérarchie typographique, états & feedbacks, tokens (taille/espacement/contraste).',
+    badgeBg: 'bg-rose-100 text-rose-700'
+  },
+  {
+    slug: 'brand',
+    icon: '🏷️',
+    title: 'Brand Identity',
+    oneLiner: 'Logo, palette, typos, usages écran/print : une identité qui tient dans le temps.',
+    bullets: ['Logo & variantes (clair/sombre, mono)', 'Mini-charte', 'Templates réseaux & pitch'],
+    details: 'Marque animée optionnelle, accessibilité couleur, favicons & open-graph.',
+    badgeBg: 'bg-amber-100 text-amber-700'
+  },
+  {
+    slug: 'ui-ux',
+    icon: '🧭',
+    title: 'UI/UX',
+    oneLiner: 'Parcours clairs, contenu utile, feedbacks rapides. Conçu pour convertir, pas pour distraire.',
+    bullets: ['Arbo & wireframes', 'Protos cliquables & tests rapides', 'Accessibilité & métriques produit'],
+    details: 'A/B light, events analytics, temps-to-task, focus states, performance perçue.',
+    badgeBg: 'bg-emerald-100 text-emerald-700'
+  }
+]
+
+const projects = [
+  {
+    title: 'StoryEngines',
+    client: 'StoryEngines',
+    year: '2025',
+    url: 'https://www.storyengines.tv',
+    poster: '/previews/storyengines-960x600.jpg',
+    summary: 'Site vitrine premium pour une société de production : typo ciné, DA sur-mesure, logo dédié.',
+    stack: ['Vue.js','Tailwind','Decap CMS','Netlify Identity','SEO optimisé'],
+    flip: false,
+    // optional: add a short "impact" line your CaseStudyRow can display if supported:
+    impact: 'Positionnement haut de gamme, site live en quelques semaines.'
+  },
+  {
+    title: 'Funcenter',
+    client: 'Funcenter',
+    year: '2025',
+    url: 'https://www.funcenter-lacduder.com',
+    poster: '/previews/funcenter-960x600.jpg',
+    summary: 'Refonte complète d’un club nautique : nouvelles vidéos, UI modernisée, formulaires, refonte logo.',
+    stack: ['Vue.js','Tailwind','Video','SEO avancé','Netlify CI/CD'],
+    flip: true,
+    impact: 'Amélioration SEO & conversion (devis / réservations).'
+  },
+  // Optionally expose Antishirt as “proof of ecosystem shipping”
+  {
+    title: 'Antishirt',
+    client: 'Antishirt',
+    year: '2025',
+    url: 'https://antishirt.fr', // update if different
+    poster: '/previews/antishirt-960x600.jpg', // add asset if you have one
+    summary: 'De la satire YouTube à une marque e-commerce prête à vendre : identité, design, Stripe, production.',
+    stack: ['Brand','Vue.js','Tailwind','Stripe','Cloudinary'],
+    flip: false,
+    impact: 'Écosystème complet construit en mode sprint.'
+  }
+]
 
 useHead({
-  title: 'Guillaume Lainé – Designer & Développeur freelance',
+  title: 'Guillaume Lainé — Digital Craftsman (Identity · UX/UI · Code)',
   meta: [
-    {
-      name: 'description',
-      content: 'Designer & développeur fullstack. Création de sites performants et identités visuelles sur mesure. StoryEngines.tv, Funcenter, CMS personnalisés.'
-    },
-    {
-      property: 'og:title',
-      content: 'Guillaume Lainé – Designer & Développeur freelance'
-    },
-    {
-      property: 'og:description',
-      content: 'Créateur de sites et d’expériences interactives : Vue.js, Tailwind, SEO, automatisation IA.'
-    },
-    {
-      name: 'robots',
-      content: 'index, follow'
-    }
+    { name: 'description', content: 'Not an Agency. Not a Coder. A digital craftsman who ships your vision — identité, UX/UI, code & launch. StoryEngines, Funcenter, Antishirt.' },
+    { property: 'og:title', content: 'Guillaume Lainé — Digital Craftsman' },
+    { property: 'og:description', content: 'Identity → Interface → Code → Launch. From idea to live in weeks.' },
+    { name: 'robots', content: 'index, follow' }
   ]
 })
 </script>
