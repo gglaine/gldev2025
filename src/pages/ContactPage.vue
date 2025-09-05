@@ -48,7 +48,7 @@
             <strong>Vous préférez l’e-mail ?</strong> Écrivez-moi directement.
             <br><span class="text-xs text-slate-500">Prefer email? Write me directly.</span>
           </div>
-          <a href="mailto:hello@guillaumelaine.com"
+          <a href="mailto:guillaumelaine2.0@gmail.com"
              class="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold text-white
                     bg-cyan-700 hover:bg-cyan-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600/70">
             Envoyer un e-mail · Send an email
