@@ -18,21 +18,21 @@ const routes = [
   { path: '/services/dev', name: 'Dev', component: Dev },
   { path: '/selector', name: 'Selector', component: SelectorPage },
   { path: '/a-propos', name: 'A propos', component: AboutPage },
+
+  // 👇 Add one route per case study (lazy import)
+  { path: '/projets/storyengines', name: 'CSStoryEngines', component: () => import('../pages/case-studies/storyengines.vue') },
+  { path: '/projets/funcenter',    name: 'CSFuncenter',    component: () => import('../pages/case-studies/funcenter.vue') },
+  { path: '/projets/antishirt',    name: 'CSAntishirt',    component: () => import('../pages/case-studies/antishirt.vue') },
+
+  { path: '/:pathMatch(.*)*', redirect: '/' }
 ]
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
   scrollBehavior(to, from, savedPosition) {
-    // Back/forward: restore previous position
     if (savedPosition) return savedPosition
-
-    // In-page anchors: scroll to element (use Tailwind's scroll-mt-* to offset sticky headers)
-    if (to.hash) {
-      return { el: to.hash }
-    }
-
-    // Default: go to top
+    if (to.hash) return { el: to.hash }
     return { left: 0, top: 0 }
   }
 })

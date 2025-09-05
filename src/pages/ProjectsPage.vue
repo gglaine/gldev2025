@@ -18,6 +18,7 @@ import { useHead } from '@vueuse/head'
 
 const projects = [
   {
+     slug: 'storyengines',
     title: 'StoryEngines',
     client: 'StoryEngines',
     year: '2025',
@@ -30,6 +31,7 @@ const projects = [
     impact: 'Positionnement haut de gamme, site live en quelques semaines.'
   },
   {
+     slug: 'funcenter',
     title: 'Funcenter',
     client: 'Funcenter',
     year: '2025',
@@ -42,6 +44,7 @@ const projects = [
   },
   // Optionally expose Antishirt as “proof of ecosystem shipping”
   {
+     slug: 'antishirt',
     title: 'Antishirt',
     client: 'Antishirt',
     year: '2025',

@@ -20,7 +20,7 @@
         </p>
 
         <p class="text-sm">
-          📧 <a href="mailto:hello@guillaumelaine.com" class="text-cyan-700 hover:underline">hello@guillaumelaine.com</a>
+          📧 <a href="mailto:guillaumelaine2.0@gmail.com" class="text-cyan-700 hover:underline">guillaumelaine2.0@gmail.com</a>
           <br><span class="text-[11px] text-slate-500">Paris & Remote · Réponse sous 24h · Reply within 24h</span>
         </p>
       </div>
