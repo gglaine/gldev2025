@@ -72,10 +72,6 @@
             </div>
           </RouterLink>
 
-          <!-- Placeholder for future service -->
-          <div class="rounded-2xl border border-dashed border-slate-200 p-6 bg-slate-50/50">
-            <div class="text-sm text-slate-500">Bientôt : Automatisation / IA appliquée · Coming soon</div>
-          </div>
         </div>
       </div>
     </section>
@@ -90,7 +86,7 @@
             Pas de thème générique. Code propre, responsive au pixel, composants réutilisables. Optimisé pour vitesse, autonomie, long terme.
           </p>
           <ul class="list-disc list-inside text-sm text-slate-700 space-y-1">
-            <li>Vue 3, Vite, Tailwind, CMS léger</li>
+            <li>Vue 3, SvelteKit, Vite, Tailwind, CMS léger</li>
             <li>Perfs réelles (Lighthouse ≥ 90 mobile)</li>
             <li>Intégrations Stripe / Firestore / APIs</li>
           </ul>

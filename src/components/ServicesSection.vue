@@ -78,7 +78,7 @@
       <!-- What I deliver (uses existing items prop) -->
       <section v-if="items?.length" aria-label="Compétences & livrables">
         <h3 class="text-2xl font-bold mb-6 text-center">Ce que je livre — brique par brique</h3>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-4">
           <article v-for="s in items" :key="s.slug" class="p-5 rounded-xl ring-1 ring-slate-200 bg-white">
             <div class="text-2xl">{{ s.icon }}</div>
             <h4 class="mt-2 font-semibold">{{ s.title }}</h4>

@@ -23,7 +23,7 @@ const projects = [
     client: 'StoryEngines',
     year: '2025',
     url: 'https://www.storyengines.tv',
-    poster: '/previews/storyengines-960x600.jpg',
+    poster: '/cs/storyengines-pg-base.jpg',
     summary: 'Site vitrine premium pour une société de production : typo ciné, DA sur-mesure, logo dédié.',
     stack: ['Vue.js','Tailwind','Decap CMS','Netlify Identity','SEO optimisé'],
     flip: false,

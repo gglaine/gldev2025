@@ -1,76 +1,208 @@
-<template>
-  <main class="bg-gradient-to-b from-white to-slate-50">
-    <article ref="articleEl" v-zoom class="max-w-5xl mx-auto px-6 py-16 space-y-12">
-      <header class="text-center space-y-3">
-        <p class="uppercase text-xs text-slate-500">Étude de cas</p>
-        <h1 class="text-4xl md:text-5xl font-black">Funcenter</h1>
-        <p class="text-slate-600">Refonte UI/UX, vidéo, formulaires, SEO</p>
-        <div class="text-sm text-slate-500">Funcenter · 2025</div>
-        <div class="mt-4 flex flex-col items-center gap-3">
-          <img src="/previews/funcenter-960x600.jpg" alt="Funcenter" class="rounded-xl border w-full max-w-3xl" loading="lazy" />
-          <div class="flex gap-2">
-            <a href="https://www.funcenter-lacduder.com" target="_blank" rel="noopener"
-               class="px-3 py-1.5 rounded-md bg-slate-900 text-white hover:bg-slate-800">Voir le site ↗</a>
-            <RouterLink to="/" class="px-3 py-1.5 rounded-md border bg-white hover:bg-slate-50">← Retour</RouterLink>
-          </div>
-        </div>
-      </header>
+<!-- src/pages/case-studies/funcenter.vue -->
+<script setup lang="ts">
+import CaseStudyFrame   from '../../components/case/CaseStudyFrame.vue'
+import CS_Hero          from '../../components/case/CS_Hero.vue'
+import CS_TextSection   from '../../components/case/CS_TextSection.vue'
+import CS_Media         from '../../components/case/CS_Media.vue'
+import CS_MetricsStrip  from '../../components/case/CS_MetricStrip.vue'
 
-      <!-- Write any sections you want. Drop images from /public/cs/funcenter/ -->
-      <section class="space-y-3">
-        <h2 class="text-2xl font-extrabold">🎯 Contexte & objectifs</h2>
-        <p class="text-slate-700">…</p>
-      </section>
-
-      <section class="space-y-4">
-        <h2 class="text-2xl font-extrabold">📐 Maquettes / UI</h2>
-        <figure class="rounded-xl overflow-hidden border bg-white">
-          <img src="/cs/funcenter/home.png" alt="Homepage" data-zoom data-caption="Homepage — hero vidéo + CTA clair" class="w-full h-auto" loading="lazy" />
-          <figcaption class="p-3 text-xs text-slate-600 border-t">Homepage</figcaption>
-        </figure>
-      </section>
-    </article>
-  </main>
-
-  <!-- Lightbox -->
-  <dialog ref="dlg" class="backdrop:bg-black/70 p-0 rounded-xl overflow-hidden">
-    <div v-if="activeSrc" class="relative bg-white">
-      <img :src="activeSrc" :alt="activeAlt" class="max-h-[86vh] max-w-[92vw] object-contain" />
-      <div v-if="activeCaption" class="p-3 text-center text-xs text-slate-600">{{ activeCaption }}</div>
-      <button class="absolute top-2 right-2 px-2 py-1 text-xs border bg-white/90 rounded" @click="close">Fermer</button>
-    </div>
-  </dialog>
-</template>
-
-<script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
-import { useHead } from '@vueuse/head'
-
-useHead({
-  title: 'Funcenter – Étude de cas',
-  meta: [
-    { name: 'description', content: 'Refonte UI/UX, vidéo, formulaires, SEO.' },
-    { property: 'og:image', content: '/cs/funcenter/og.jpg' }
-  ],
-  link: [{ rel: 'canonical', href: `${location.origin}/case-studies/funcenter` }]
-})
-
-// simple click-to-zoom (works for any <img data-zoom>)
-const articleEl = ref(null), dlg = ref(null)
-const activeSrc = ref(''), activeAlt = ref(''), activeCaption = ref('')
-const vZoom = {
-  mounted(el) {
-    el.addEventListener('click', (e) => {
-      const t = e.target
-      if (!(t instanceof HTMLImageElement) || !t.hasAttribute('data-zoom')) return
-      activeSrc.value = t.currentSrc || t.src
-      activeAlt.value = t.alt || ''
-      activeCaption.value = t.getAttribute('data-caption') || ''
-      dlg.value?.showModal?.()
-    })
-  }
-}
-function close(){ dlg.value?.close?.(); activeSrc.value=''; activeAlt.value=''; activeCaption.value='' }
-onMounted(()=>window.addEventListener('keydown', (e)=>{ if(dlg.value?.open && e.key==='Escape') close() }))
-onBeforeUnmount(()=>window.removeEventListener('keydown', ()=>{}))
+// Optional live preview (comment if you don't use it)
+import ProjectLivePreview from '../../components/ProjectLivePreview.vue'
 </script>
+
+<template>
+  <CaseStudyFrame
+    title="Funcenter — Refonte Vue/Vite/Tailwind"
+    description="Bilingue, réservations Guidap, SEO, performances"
+  >
+    <!-- HERO -->
+    <CS_Hero
+      kicker="Étude de cas"
+      title="Faire d’un club nautique un aimant à réservations"
+      subtitle="Migration React-Static → Vue/Vite/Tailwind · Intégration Guidap · SEO local"
+      media="/cs/funcenter/homepage-2025-hero-1200w.webp"
+      alt="Vue du site Funcenter 2025"
+    />
+    <!-- EN line -->
+    <p class="sr-only">Case study — Turning a nautical club into a booking magnet.</p>
+
+    <!-- CONTEXTE / OBJECTIFS -->
+    <CS_TextSection title="Contexte & objectifs">
+      <p class="leading-relaxed">
+        Le site historique était figé, peu lisible sur mobile et ne valorisait pas la diversité d’activités.
+        Objectif : clarifier l’offre, fluidifier la réservation (Guidap) et gagner en trafic local qualifié.
+      </p>
+      <p class="text-sm text-slate-500">
+        Legacy site was static and mobile-unfriendly. Goals: clarify offering, streamline bookings (Guidap),
+        and capture high-intent local traffic.
+      </p>
+      <ul class="mt-4 grid sm:grid-cols-2 gap-2 text-sm">
+        <li class="flex items-start gap-2"><span aria-hidden>•</span><span>Refonte front (Vue 3, Vite, Tailwind v4)</span></li>
+        <li class="flex items-start gap-2"><span aria-hidden>•</span><span>Intégration <strong>Guidap</strong> (réservations)</span></li>
+        <li class="flex items-start gap-2"><span aria-hidden>•</span><span>FR/EN + optimisation SEO local</span></li>
+        <li class="flex items-start gap-2"><span aria-hidden>•</span><span>Navigation mobile prioritaire</span></li>
+      </ul>
+    </CS_TextSection>
+
+    <!-- APERÇU / HERO VISUAL -->
+    <CS_Media
+      src="/cs/funcenter/funcenter-2025-hero-700w.webp"
+      caption="Homepage — hiérarchie claire, CTA visibles, focus réservation"
+    />
+
+    <!-- SCOPE & RÔLE -->
+    <CS_TextSection title="Rôle & périmètre">
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div>
+          <h3 class="font-semibold mb-2">Rôle</h3>
+          <ul class="text-sm space-y-1">
+            <li>Direction artistique & design system</li>
+            <li>Architecture de l’information (IA)</li>
+            <li>Dev front Vue 3/Vite/Tailwind</li>
+            <li>Implémentation SEO technique</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Périmètre</h3>
+          <ul class="text-sm space-y-1">
+            <li>Pages activités modulaires</li>
+            <li>Funnel de réservation (Guidap)</li>
+            <li>Internationalisation FR/EN</li>
+            <li>Mesure & Core Web Vitals</li>
+          </ul>
+        </div>
+      </div>
+      <p class="mt-3 text-sm text-slate-500">
+        Role & Scope — Art direction, IA, front-end build, technical SEO, analytics.
+      </p>
+    </CS_TextSection>
+
+    <!-- INFORMATION ARCHITECTURE -->
+    <CS_TextSection title="Architecture de l’information">
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div>
+          <h3 class="font-semibold mb-2">Structure</h3>
+          <ul class="text-sm space-y-1">
+            <li>Accueil → Activités → Réservation</li>
+            <li>Pages « Activité » : pitch court, tarifs, FAQ, CTA</li>
+            <li>Navigation mobile : raccourcis vers activités clés</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Contenu</h3>
+          <ul class="text-sm space-y-1">
+            <li>Intro orientée bénéfices (famille, groupe, sensations)</li>
+            <li>Blocs preuves : visuels, avis, sécurité</li>
+            <li>SEO local : zones desservies & requêtes populaires</li>
+          </ul>
+        </div>
+      </div>
+      <p class="mt-3 text-sm text-slate-500">
+        IA — Clear paths, scannable content, friction-less booking cues.
+      </p>
+    </CS_TextSection>
+
+    <!-- BOOKING FUNNEL (GUIDAP) -->
+    <CS_TextSection title="Funnel réservation (Guidap)">
+      <ol class="list-decimal pl-5 text-sm space-y-1">
+        <li>Découverte : catégorie → activité (signalétique & tuiles)</li>
+        <li>Preuve : photos, prix, créneaux, pré-FAQ</li>
+        <li>Action : CTA « Réserver » → widget Guidap (deep-link)</li>
+        <li>Rassurance : mentions sécurité, contact rapide</li>
+      </ol>
+      <p class="mt-3 text-sm text-slate-500">
+        Booking flow — shallow hierarchy, fast hand-off to Guidap, fewer doubts before click.
+      </p>
+    </CS_TextSection>
+
+    <!-- PERFORMANCE -->
+    <CS_TextSection title="Performance & accessibilité">
+      <ul class="text-sm space-y-1">
+        <li>Images responsive (WebP), lazy-loading, dimensions explicites</li>
+        <li>Tailwind v4 (CSS-first), purge stricte, pas de surcharge UI</li>
+        <li>Composants critiques sans dépendances lourdes</li>
+        <li>Audit Lighthouse, correctifs CLS/LCP/INP ciblés</li>
+      </ul>
+      <p class="mt-3 text-sm text-slate-500">
+        Performance — optimized media, lean CSS, stable layout for better CWV.
+      </p>
+    </CS_TextSection>
+
+    <!-- SEO & MESURE -->
+    <CS_TextSection title="SEO & mesure">
+      <ul class="text-sm space-y-1">
+        <li>Balises sémantiques, métas sociales, schémas locaux</li>
+        <li>Arborescence URLs propre (FR/EN) + redirections</li>
+        <li>Search Console & Analytics : events réservations, funnel</li>
+        <li>Contenu local (lac du Der, activités saisonnières)</li>
+      </ul>
+      <p class="mt-3 text-sm text-slate-500">
+        SEO & Analytics — local keywords, structured content, measurable actions.
+      </p>
+    </CS_TextSection>
+
+    <!-- LIVE PREVIEW (optional) -->
+    <CS_TextSection title="Aperçu en direct">
+      <ProjectLivePreview
+        url="https://funcenter-lacduder.com"
+        title="Funcenter"
+        fallbackImage="/cs/funcenter/homepage-2025-hero-1200w.webp"
+      />
+      <p class="mt-2 text-xs text-slate-500">
+        L’aperçu embarqué peut être limité par les restrictions d’intégration externes. Ouvrez dans un nouvel onglet si nécessaire.
+      </p>
+    </CS_TextSection>
+
+    <!-- RESULTS (PLACEHOLDERS) -->
+    <CS_MetricsStrip :items="[
+      { label: 'Pagespeed (mobile)', value: '90+' },
+      { label: 'Réservation mobile', value: '+YY%' },
+      { label: 'Trafic orga local', value: '+XX%' }
+    ]" />
+
+    <!-- TIMELINE & NEXT -->
+    <CS_TextSection title="Calendrier & suite">
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div>
+          <h3 class="font-semibold mb-2">Timeline</h3>
+          <ul class="text-sm space-y-1">
+            <li>Semaine 1 : cadrage, IA, wireframes</li>
+            <li>Semaine 2 : design system & templates</li>
+            <li>Semaine 3 : intégration front & Guidap</li>
+            <li>Semaine 4 : perf, SEO, QA, mise en ligne</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Prochaines étapes</h3>
+          <ul class="text-sm space-y-1">
+            <li>Itérations SEO (pages activités longues)</li>
+            <li>UGC & avis clients (preuve sociale)</li>
+            <li>Bundles famille / groupe (upsell)</li>
+            <li>Automations analytics (rapports mensuels)</li>
+          </ul>
+        </div>
+      </div>
+      <p class="mt-3 text-sm text-slate-500">
+        Roadmap — content depth, social proof, offers, and automated insights.
+      </p>
+    </CS_TextSection>
+
+    <!-- CTA / BACK -->
+    <div class="mt-6 flex items-center gap-6">
+      <a
+        href="https://funcenter-lacduder.com"
+        target="_blank" rel="noopener"
+        class="inline-flex items-center gap-1 text-slate-700 hover:text-slate-900 font-medium"
+      >
+        Site live <span aria-hidden>↗</span>
+      </a>
+
+      <RouterLink
+        to="/case-studies"
+        class="text-sm text-slate-500 hover:text-slate-700 inline-flex items-center gap-1"
+      >
+        ← Retour aux études de cas
+      </RouterLink>
+    </div>
+  </CaseStudyFrame>
+</template>

@@ -1,271 +1,306 @@
-<template>
-  <main class="bg-gradient-to-b from-white to-slate-50">
-    <article ref="articleEl" v-zoom class="max-w-5xl mx-auto px-6 py-16 space-y-12">
-      <!-- HERO -->
-      <header class="space-y-4 text-center">
-        <p class="uppercase text-xs tracking-wider text-slate-500">Étude de cas</p>
-        <h1 class="text-4xl md:text-5xl font-black">StoryEngines</h1>
-        <p class="text-slate-600">Positionnement premium discret — identité, site, SEO</p>
-        <div class="text-sm text-slate-500">StoryEngines · 2025</div>
-        <div class="mt-4 flex flex-col items-center gap-3">
-          <img
-            src="/cs/storyengines/og.jpg"
-            alt="StoryEngines"
-            class="rounded-xl border w-full max-w-3xl"
-            loading="lazy"
-          />
-          <div class="flex gap-2">
-            <a
-              href="https://www.storyengines.tv"
-              target="_blank"
-              rel="noopener"
-              class="px-3 py-1.5 rounded-md bg-slate-900 text-white hover:bg-slate-800"
-            >Voir le site ↗</a>
-            <RouterLink
-              to="/projets"
-              class="px-3 py-1.5 rounded-md border bg-white hover:bg-slate-50"
-            >← Retour</RouterLink>
-          </div>
-        </div>
-      </header>
-
-      <!-- CONTEXTE -->
-      <section class="space-y-3">
-        <h2 class="text-2xl font-extrabold">🎯 Contexte & objectifs</h2>
-        <p class="text-slate-700">
-          Créer une identité premium sans ostentation, un site rapide et sobre, bilingue, avec un CMS simple.
-        </p>
-        <ul class="grid sm:grid-cols-2 gap-3">
-          <li class="p-4 rounded-xl border bg-white">Clarifier le positionnement “crafted premium”.</li>
-          <li class="p-4 rounded-xl border bg-white">Grille stricte, typo cinéma, no-bloat.</li>
-          <li class="p-4 rounded-xl border bg-white">SEO de base (sitemap, métas, schémas, maillage).</li>
-          <li class="p-4 rounded-xl border bg-white">Lighthouse solide dès la V1.</li>
-        </ul>
-      </section>
-
-      <!-- MOODBOARD / LOGOS -->
-      <section class="space-y-4">
-        <h2 class="text-2xl font-extrabold">🎨 Moodboard — itérations de logo</h2>
-        <p class="text-slate-600">Des premières pistes au monogramme final.</p>
-
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <figure class="rounded-xl overflow-hidden border border-slate-200 bg-white">
-            <div class="relative figure-media" data-step="1">
-              <img
-                src="/cs/storyengines/logo-01.png"
-                alt="Piste mécanique"
-                class="w-full h-auto"
-                loading="lazy"
-                data-zoom
-                data-caption="Piste mécanique — couronne/engrenage : précision & artisanat."
-              />
-            </div>
-            <figcaption class="p-3 text-xs text-slate-600 border-t border-slate-100">
-              <div class="font-medium">Piste mécanique</div>
-              <div class="mt-1 text-slate-500">Kerning et masse testés pour petits corps.</div>
-            </figcaption>
-          </figure>
-
-          <figure class="rounded-xl overflow-hidden border border-slate-200 bg-white">
-            <div class="relative figure-media" data-step="2">
-              <img
-                src="/cs/storyengines/logo-02.png"
-                alt="Wordmark ciné"
-                class="w-full h-auto"
-                loading="lazy"
-                data-zoom
-                data-caption="Wordmark ciné — kerning serré, rythme intertitres."
-              />
-            </div>
-            <figcaption class="p-3 text-xs text-slate-600 border-t border-slate-100">
-              <div class="font-medium">Wordmark ciné</div>
-              <div class="mt-1 text-slate-500">Contraste mesuré, respiration contrôlée.</div>
-            </figcaption>
-          </figure>
-
-          <figure class="rounded-xl overflow-hidden border border-slate-200 bg-white">
-            <div class="relative figure-media" data-step="9">
-              <img
-                src="/cs/storyengines/logo-final.png"
-                alt="Version finale"
-                class="w-full h-auto"
-                loading="lazy"
-                data-zoom
-                data-caption="Final — monogramme discret + wordmark net."
-              />
-            </div>
-            <figcaption class="p-3 text-xs text-slate-600 border-t border-slate-100">
-              <div class="font-medium">Version finale</div>
-              <div class="mt-1 text-slate-500">Équilibre poids/espacement, lisible en favicon.</div>
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <!-- MOCKUPS -->
-      <section class="space-y-4">
-        <h2 class="text-2xl font-extrabold">📐 Maquettes Figma — pages clés</h2>
-        <div class="grid md:grid-cols-2 gap-6">
-          <figure class="rounded-xl overflow-hidden border border-slate-200 bg-white">
-            <div class="relative">
-              <img
-                src="/cs/storyengines/home.png"
-                alt="Homepage"
-                class="w-full h-auto"
-                loading="lazy"
-                data-zoom
-                data-caption="Homepage — hero minimal, hiérarchie claire."
-              />
-            </div>
-            <figcaption class="p-3 text-xs text-slate-600 border-t border-slate-100">
-              <div class="font-medium">Homepage</div>
-              <div class="mt-1 text-slate-500">Grille 12, ratio d’images constant.</div>
-            </figcaption>
-          </figure>
-
-          <figure class="rounded-xl overflow-hidden border border-slate-200 bg-white">
-            <div class="relative">
-              <img
-                src="/cs/storyengines/project.png"
-                alt="Fiche production"
-                class="w-full h-auto"
-                loading="lazy"
-                data-zoom
-                data-caption="Fiche production — hero vidéo, crédits, navigation latérale."
-              />
-            </div>
-            <figcaption class="p-3 text-xs text-slate-600 border-t border-slate-100">
-              <div class="font-medium">Fiche production</div>
-              <div class="mt-1 text-slate-500">Focus sur lisibilité des crédits.</div>
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <!-- ANALYTICS (optional) -->
-      <section class="space-y-4">
-        <h2 class="text-2xl font-extrabold">📊 SEO & performance</h2>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <figure class="rounded-xl overflow-hidden border border-slate-200 bg-white">
-            <div class="relative">
-              <img
-                src="/cs/storyengines/gsc-queries.png"
-                alt="GSC — requêtes"
-                class="w-full h-auto"
-                loading="lazy"
-                data-zoom
-                data-caption="GSC — requêtes : croissance organique régulière."
-              />
-            </div>
-            <figcaption class="p-3 text-xs text-slate-600 border-t border-slate-100">GSC — requêtes</figcaption>
-          </figure>
-
-          <figure class="rounded-xl overflow-hidden border border-slate-200 bg-white">
-            <div class="relative">
-              <img
-                src="/cs/storyengines/coverage.png"
-                alt="GSC — couverture"
-                class="w-full h-auto"
-                loading="lazy"
-                data-zoom
-                data-caption="GSC — couverture : 100% indexé."
-              />
-            </div>
-            <figcaption class="p-3 text-xs text-slate-600 border-t border-slate-100">GSC — couverture</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <!-- RÉSULTATS -->
-      <section class="space-y-4">
-        <h2 class="text-2xl font-extrabold">🏁 Résultats</h2>
-        <ul class="grid sm:grid-cols-2 gap-3">
-          <li class="p-4 rounded-xl border bg-white">✅ Positionnement clarifié (haut de gamme discret).</li>
-          <li class="p-4 rounded-xl border bg-white">🚀 Mise en ligne rapide, CMS opérationnel.</li>
-          <li class="p-4 rounded-xl border bg-white">📈 Progression SEO sur 3 mois.</li>
-        </ul>
-      </section>
-    </article>
-  </main>
-
-  <!-- LIGHTBOX -->
-  <dialog ref="dlg" class="backdrop:bg-black/70 p-0 rounded-xl overflow-hidden">
-    <div v-if="activeSrc" class="relative bg-white">
-      <img :src="activeSrc" :alt="activeAlt" class="max-h-[86vh] max-w-[92vw] object-contain" />
-      <div v-if="activeCaption" class="p-3 text-center text-xs text-slate-600">{{ activeCaption }}</div>
-      <button
-        class="absolute top-2 right-2 px-2 py-1 text-xs border bg-white/90 rounded"
-        @click="close"
-      >Fermer</button>
-    </div>
-  </dialog>
-</template>
-
-<script setup>
-// SEO head (public asset paths as plain strings)
+<!-- src/pages/case-studies/storyengines.vue -->
+<script setup lang="ts">
 import { useHead } from '@vueuse/head'
+
+// Case study shell + blocks
+import CaseStudyFrame       from '../../components/case/CaseStudyFrame.vue'
+import CS_Hero              from '../../components/case/CS_Hero.vue'
+import CS_TextSection       from '../../components/case/CS_TextSection.vue'
+import CS_MetricStrip       from '../../components/case/CS_MetricStrip.vue' // ← ensure filename matches
+import CS_Media             from '../../components/case/CS_Media.vue'
+import CS_Subnav            from '../../components/case/CS_Subnav.vue'
+import CSResults            from '../../components/blocks/CSResults.vue'
+import ProcessSteps         from '../../components/blocks/CSProcessSteps.vue'
+import ProjectLivePreview   from '../../components/ProjectLivePreview.vue'
+
+const canonicalUrl = 'https://www.guillaumelaine.com/case-studies/storyengines'
+
 useHead({
-  title: 'StoryEngines – Étude de cas',
+  title: 'StoryEngines — Étude de cas',
   meta: [
-    { name: 'description', content: 'Identité, site, SEO.' },
-    { property: 'og:title', content: 'StoryEngines – Case Study' },
-    { property: 'og:description', content: 'Identité, site, SEO.' },
+    { name: 'description', content: 'Identité premium, design system, CMS Decap et SEO pour StoryEngines.tv.' },
+    { property: 'og:title', content: 'StoryEngines — Case Study' },
+    { property: 'og:description', content: 'Logo, design system, CMS Decap, SEO & performances.' },
     { property: 'og:type', content: 'article' },
-    { property: 'og:image', content: '/cs/storyengines/og.jpg' },
+    { property: 'og:image', content: '/og/case-studies/storyengines-og.jpg' },
     { name: 'twitter:card', content: 'summary_large_image' }
   ],
-  link: [{ rel: 'canonical', href: `${location.origin}/projets/storyengines` }]
+  link: [{ rel: 'canonical', href: canonicalUrl }],
+  script: [{
+    type: 'application/ld+json',
+    children: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'CreativeWork',
+      name: 'StoryEngines — Étude de cas',
+      inLanguage: 'fr-FR',
+      url: canonicalUrl
+    })
+  }]
 })
 
-// lightweight click-to-zoom (works for any <img data-zoom>)
-import { ref, onMounted, onBeforeUnmount } from 'vue'
-const articleEl = ref(null)
-const dlg = ref(null)
-const activeSrc = ref('')
-const activeAlt = ref('')
-const activeCaption = ref('')
 
-const vZoom = {
-  mounted(el) {
-    el.addEventListener('click', (e) => {
-      const t = e.target
-      if (!(t instanceof HTMLImageElement)) return
-      if (!t.hasAttribute('data-zoom')) return
-      activeSrc.value = t.currentSrc || t.src
-      activeAlt.value = t.alt || ''
-      activeCaption.value = t.getAttribute('data-caption') || ''
-      dlg.value?.showModal?.()
-    })
-  }
-}
-
-function close() {
-  dlg.value?.close?.()
-  activeSrc.value = ''
-  activeAlt.value = ''
-  activeCaption.value = ''
-}
-
-function onKey(e) {
-  if (!dlg.value?.open) return
-  if (e.key === 'Escape') close()
-}
-onMounted(() => window.addEventListener('keydown', onKey))
-onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
 </script>
 
-<style scoped>
-/* Only plain CSS here — no @apply. Badge for data-step. */
-.figure-media[data-step]::after {
-  content: "Étape " attr(data-step);
-  position: absolute;
-  left: 0.5rem;
-  top: 0.5rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgb(226, 232, 240);
-  border-radius: 0.375rem;
-  padding: 0.125rem 0.5rem;
-}
-</style>
+<template>
+  <CaseStudyFrame
+    title="StoryEngines — Identité & site premium"
+    description="Vue/Vite/Tailwind, Decap CMS, SEO, performances cinématographiques"
+  >
+    <!-- HERO -->
+    <CS_Hero
+      kicker="Étude de cas"
+      title="L’identité cinématographique d’un studio premium"
+      subtitle="Identité, design system, CMS & SEO"
+      media="/cs/storyengines/hero.webp"
+      alt="Aperçu du site StoryEngines"
+    />
+
+
+    <!-- =========================
+         LOGO & IDENTITÉ (intégré)
+         ========================= -->
+    <section id="logo-identite" aria-label="Logo & Identité" class="scroll-mt-24">
+
+
+        <CS_TextSection title="Enjeu et Intentions">
+          <p class="mb-4">
+            <span class="lang-fr">FR:</span> Créer un signe qui évoque la mécanique du cinéma — engrenages, précision, énergie — sans tomber dans le cliché.
+            Une identité sobre et maîtrisée, capable de parler aux créatifs comme aux producteurs, et de s’adapter du monogramme au langage cinématographique.
+            L’intention : conjuguer <em>ingénierie</em> et <em>narration</em>, pour incarner une marque qui “met en mouvement les histoires”.
+          </p>
+          <p>
+            <span class="lang-en">EN:</span> The goal was to create a mark that evokes the mechanics of cinema — gears, precision, energy — without resorting to cliché.
+            A refined and disciplined identity, one that speaks to both creatives and producers, scaling from monogram to cinematic language.
+            The intent: blending <em>engineering</em> and <em>storytelling</em>, to embody a brand that truly “powers narratives”.
+          </p>
+        </CS_TextSection>
+
+        <CS_Media
+          src="/cs/storyengines/logo/hero.avif"
+          caption="Monogramme + wordmark — variantes et zones de protection"
+        />
+
+        <!-- Exploration — monogramme -->
+        <ProcessSteps
+          title="Exploration — monogramme"
+          :steps="[
+            {
+              src: '/cs/storyengines/process/monogram1.avif',
+              title: 'Superposition / Stacking',
+              desc_fr: 'Premiers tests : empiler S et E le long d’un axe vertical pour définir une colonne vertébrale claire. Objectif : vérifier la lisibilité et l’équilibre entre la souplesse organique du S et la rigueur géométrique du E.',
+              desc_en: 'First trials: stack S and E along a vertical axis to establish a clear backbone. Goal: validate legibility and balance between the organic flow of S and the geometric rigor of E.'
+            },
+            {
+              src: '/cs/storyengines/process/monogram2.avif',
+              title: 'Fusion initiale / First Merge',
+              desc_fr: 'Le S et le E commencent à s’entrelacer : les diagonales se rapprochent, les formes s’emboîtent. Cette fusion progressive explore un signe plus compact et iconique, au-delà de la simple juxtaposition.',
+              desc_en: 'The S and E begin to interlock: diagonals converge, shapes slot into each other. This early merge explores a more compact, iconic mark that goes beyond mere juxtaposition.'
+            },
+            {
+              src: '/cs/storyengines/process/goldenlaurelslogo.gif',
+              title: 'Aura iconique / Iconic Framing',
+              desc_fr: 'Couronne de lauriers : codes de prestige et d’univers cinéma. Elle cadre l’ADN “story + engineering” avec une aura iconique.',
+              desc_en: 'Laurel wreath: prestige and cinema cues. It frames the “story + engineering” DNA with an iconic aura.'
+            }
+          ]"
+          variant="cards"
+          direction="auto"
+          connector="arrow"
+          mediaAspect="1:1"
+          :itemWidth="256"
+          :gap="32"
+        />
+
+        <!-- Iteration — vocabulaire visuel -->
+        <ProcessSteps
+          title="Iteration — vocabulaire visuel"
+          :steps="[
+            {
+              src: '/cs/storyengines/process/mechanical1.avif',
+              title: 'Vocabulaire visuel / Visual Vocabulary',
+              desc_fr: 'Associer monogramme, engrenage et plume pour poser la combinatoire mécanique + écriture. Étape encore décorative, volontairement ouverte.',
+              desc_en: 'Combine monogram, gear, and feather to set the mechanics + writing vocabulary. Still decorative, intentionally open-ended.'
+            },
+            {
+              src: '/cs/storyengines/process/mechanical2.avif',
+              title: 'Intégration & Profondeur / Integration & Depth',
+              desc_fr: 'Contrastes chaud/froid et dégradés pour donner volume. La plume s’intègre à l’engrenage : l’objet devient “vivant”.',
+              desc_en: 'Warm/cool contrast and gradients add volume. The feather integrates into the gear: the object becomes “alive”.'
+            },
+            {
+              src: '/cs/storyengines/process/mechanical3.avif',
+              title: 'Symbole synthétique / Reduced Symbol',
+              desc_fr: 'Simplification finale : abandon du monogramme au profit d’un signe lisible plume+engrenage, pensé pour l’échelle et la clarté.',
+              desc_en: 'Final simplification: drop the monogram in favor of a clear feather+gear symbol designed for scale and clarity.'
+            }
+          ]"
+          variant="cards"
+          direction="auto"
+          connector="arrow"
+          mediaAspect="1:1"
+          :itemWidth="256"
+          :gap="32"
+        />
+
+        <!-- Embodiment — facteur humain -->
+        <ProcessSteps
+          title="Embodiment — facteur humain"
+          :steps="[
+            {
+              src: '/cs/storyengines/process/storypeople1.avif',
+              title: 'Lettres incarnées / Human Letterforms',
+              desc_fr: 'Les lettres de “STORY” deviennent silhouettes humaines : le récit s’incarne dans les corps et les gestes.',
+              desc_en: 'The letters in “STORY” turn into human silhouettes: narrative embodied through bodies and gestures.'
+            },
+            {
+              src: '/cs/storyengines/process/storypeople2.avif',
+              title: 'Narration collective / Crowd Narrative',
+              desc_fr: 'Chaque lettre se peuple : foule en mouvement, inclusivité et intelligence collective au cœur du processus.',
+              desc_en: 'Each letter fills with people: a moving crowd, inclusivity, and collective intelligence at the core of the process.'
+            },
+            {
+              src: '/cs/storyengines/process/storypeople3.avif',
+              title: 'Synergie humain-machine / Human–Machine Synergy',
+              desc_fr: 'Un personnage porte un engrenage-bobine : métaphore claire du lien entre force humaine et ingénierie du récit.',
+              desc_en: 'A figure carries a gear-as-film-reel: a clear metaphor of human power fueling engineered storytelling.'
+            }
+          ]"
+          variant="cards"
+          direction="auto"
+          connector="arrow"
+          mediaAspect="1:1"
+          :itemWidth="256"
+          :gap="32"
+        />
+
+        <!-- Atmosphere — mise en scène -->
+        <ProcessSteps
+          title="Atmosphere — mise en scène"
+          :steps="[
+            {
+              src: '/cs/storyengines/process/backgenmo.mp4',
+              title: 'Intro cinématographique / Cinematic Intro',
+              desc_fr: 'Ambiance sombre et dramatique : le logo émerge dans un univers de lumière et de métal.',
+              desc_en: 'Dark, dramatic mood: the logo emerges within a world of light and metal.'
+            },
+            {
+              src: '/cs/storyengines/process/metaldolly.mp4',
+              title: 'Matière en mouvement / Material in Motion',
+              desc_fr: 'La caméra glisse sur le métal incandescent : exploration du relief et préparation aux symboles.',
+              desc_en: 'The camera glides over glowing metal: exploring relief and setting up the symbolic work to come.'
+            }
+          ]"
+          variant="cards"
+          direction="auto"
+          connector="arrow"
+          mediaAspect="16:9"
+          :itemWidth="512"
+          :gap="48"
+        />
+
+        <!-- Reduction — symboles & textures -->
+        <ProcessSteps
+          title="Reduction — symboles & textures"
+          :steps="[
+            {
+              src: '/cs/storyengines/process/moltensilverlogo.gif',
+              title: 'Énergie en fusion / Molten Energy',
+              desc_fr: 'Métal chauffé, lueurs et fumées : énergie cinétique qui met la marque en mouvement.',
+              desc_en: 'Heated metal, glow, and smoke: kinetic energy that sets the brand in motion.'
+            },
+            {
+              src: '/cs/storyengines/process/goldplatelogo.gif',
+              title: 'Gravure industrielle / Industrial Engraving',
+              desc_fr: 'Plaque métallique gravée : travail de matière, contreformes et alignements pour une lisibilité robuste.',
+              desc_en: 'Engraved metal plate: materiality, counterforms, and alignment refined for robust legibility.'
+            }
+          ]"
+          variant="cards"
+          direction="auto"
+          connector="arrow"
+          mediaAspect="16:9"
+          :itemWidth="512"
+          :gap="32"
+        />
+
+        <!-- Delivery — identité cristallisée -->
+        <ProcessSteps
+          title="Delivery — identité cristallisée"
+          :steps="[
+            {
+              src: '/cs/storyengines/process/storyengines-logo.png',
+              title: 'Logo final / Final Logo',
+              desc_fr: 'Symbole mécanique et typographie unis : une roue dentée stylisée, double anneau intérieur, comme engrenage narratif ou œil de caméra. Le mot-symbole en minuscules, gras et arrondi, transmet solidité et proximité. Le jaune primaire éclaire l’ensemble, contrasté par le noir pour une lisibilité maximale.',
+              desc_en: 'Mechanical symbol and wordmark combined: a stylized gear with a double inner ring, evoking both narrative machinery and a camera lens. The bold, rounded lowercase typography conveys solidity and approachability. Primary yellow lights the whole, contrasted with black for maximum legibility.'
+            },
+            {
+              src: '/cs/storyengines/process/storyengines-homeanim-web-anim.mp4',
+              title: 'Identité animée / Animated Identity',
+              desc_fr: 'En contexte sur la homepage : le logo prend vie dans une mise en scène cinématographique. Le noir s’ouvre, les engrenages s’assemblent et se contractent pour révéler la marque, avant que le tagline “Powering Narratives” ne s’installe. L’animation amplifie la dimension artisanale et narrative du système.',
+              desc_en: 'In context on the homepage: the logo comes alive through cinematic staging. Black opens up, gears assemble and contract to reveal the mark, before the tagline “Powering Narratives” settles in. The animation reinforces both the crafted and narrative dimensions of the system.'
+            }
+          ]"
+          variant="cards"
+          direction="auto"
+          connector="arrow"
+          mediaAspect="16:9"
+          :itemWidth="512"
+          :gap="32"
+        />
+   
+    </section>
+
+    <!-- =========================
+         CMS (aperçu)
+         ========================= -->
+    <section id="cms" class="scroll-mt-24">
+      <CS_TextSection title="CMS (Decap) — édition simple, flux propre">
+        <p class="text-slate-700">
+          Back-office statique via Decap CMS + Netlify Identity : édition Markdown, previews locales,
+          contrôle des médias (images AVIF/WebP), et builds Netlify. Objectif : une chaîne éditoriale
+          légère mais solide, sans surcouche lourde.
+        </p>
+      </CS_TextSection>
+    </section>
+
+    <!-- =========================
+         SEO & Performance (aperçu)
+         ========================= -->
+    <section id="seo-perf" class="scroll-mt-24">
+      <CS_TextSection title="SEO & Performance — aperçu">
+        <p class="text-slate-700">
+          Optimisations Core Web Vitals (LCP via poster + vidéo, images responsives AVIF/WebP, Tailwind
+          purgé), métadonnées sociales (OpenGraph/Twitter), balises canoniques. Structure prête pour
+          enrichissement futur (schémas de contenus, netlinking).
+        </p>
+      </CS_TextSection>
+    </section>
+
+    <!-- LIVE PREVIEW -->
+    <CS_TextSection title="Aperçu en direct">
+      <ProjectLivePreview
+        url="https://storyengines.tv"
+        title="StoryEngines"
+        fallbackImage="/cs/storyengines/home.webp"
+      />
+    </CS_TextSection>
+
+    <!-- METRICS -->
+    <CS_MetricStrip :items="[
+      { label: 'Pagespeed (mobile)', value: '90+' },
+      { label: 'Mise en ligne', value: 'Juin 2025' },
+      { label: 'Stack', value: 'Vue • Vite • Tailwind • Decap' }
+    ]" />
+
+    <!-- CTA -->
+    <div class="mt-6 flex items-center gap-6">
+      <RouterLink
+        to="/case-studies"
+        class="text-sm text-slate-500 hover:text-slate-700 inline-flex items-center gap-1"
+      >
+        ← Retour aux études de cas
+      </RouterLink>
+    </div>
+
+  </CaseStudyFrame>
+</template>

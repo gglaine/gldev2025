@@ -1,123 +1,235 @@
 <template>
-  <main class="text-slate-800 bg-white antialiased">
+<main
+  class="relative min-h-screen flex flex-col justify-center items-center 
+         text-slate-800 bg-white antialiased
+         "
+>
+<!-- HERO -->
+<section
+  class="relative overflow-hidden w-full min-h-[100svh] grid place-items-center text-center"
+  aria-labelledby="hero-title"
+>
+  <!-- background image -->
+  <div class="absolute inset-0 bg-[url('/images/coca.png')] bg-cover bg-center bg-no-repeat opacity-10 md:opacity-15"></div>
+  <!-- light gradient overlay for readability -->
+  <div class="absolute inset-0 bg-gradient-to-b from-white/70 via-white/40 to-white/10 md:from-white/60 md:via-white/30 md:to-transparent"></div>
 
-    <!-- HERO -->
-    <section
-      class="hero relative overflow-hidden w-full min-h-[100svh] flex flex-col justify-center items-center text-center"
-      aria-label="Présentation"
+  <!-- decorative underline loop -->
+  <ProcessUnderlineLoop />
+
+  <div class="relative px-6 w-full max-w-screen-md lg:max-w-5xl mx-auto space-y-6 sm:space-y-7 md:space-y-8 py-20 sm:py-24 md:py-28">
+    <!-- credibility pill -->
+    <div class="flex flex-wrap items-center justify-center gap-2">
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-cyan-100 text-cyan-700 ring-1 ring-cyan-300/60">
+        ⚡ De l’idée au lancement en quelques semaines
+      </span>
+      <span class="hidden sm:inline text-xs text-slate-500">
+        Produit · Identité · UI/UX · Branding · SEO
+      </span>
+    </div>
+
+    <!-- title -->
+    <h1
+      id="hero-title"
+      class="text-balance font-extrabold leading-tight tracking-tight
+             text-transparent bg-clip-text bg-gradient-to-br from-slate-900 via-slate-800 to-slate-600 drop-shadow-sm
+             text-4xl sm:text-4xl md:text4xl lg:text-6xl"
     >
-      <div class="absolute inset-0 z-0 bg-gradient-to-br from-white via-slate-50 to-slate-100"></div>
+Designer & Développeur — identité et produit, main dans la main
+    </h1>
 
-      <div class="relative z-10 px-6 max-w-5xl mx-auto space-y-6 motion-safe:animate-[fadeInUp_700ms_ease]">
-        <!-- credibility stamp -->
-        <div class="flex items-center justify-center gap-2">
-          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-cyan-100 text-cyan-700 ring-1 ring-cyan-300/60">
-            🚀 From Idea → Live in Weeks
-          </span>
-          <span class="hidden sm:inline text-xs text-slate-500">Identity · UX/UI · Code · Launch</span>
+    <!-- micro-explainer -->
+    <p class="text-pretty text-base sm:text-lg md:text-xl text-slate-700 font-light tracking-wide max-w-prose mx-auto leading-relaxed">
+      J’unis conseil, design et prototypage rapide pour créer des produits alignés à votre identité et à vos enjeux,
+      pensés dès l’origine pour générer de la valeur en ligne.
+    </p>
+
+    <!-- CTAs -->
+    <div class="mt-6 sm:mt-7 md:mt-8 flex flex-wrap justify-center gap-3 sm:gap-4">
+      <a
+        href="#contact"
+        class="inline-flex items-center justify-center rounded-full px-6 py-3 text-base sm:text-lg font-semibold text-white
+               bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700
+               shadow-sm hover:shadow-md transition-transform duration-200 will-change-transform hover:scale-[1.04] active:scale-[0.98]
+               focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+      >
+        Lancer votre projet
+      </a>
+
+      <a
+        href="#work"
+        class="inline-flex items-center justify-center rounded-full px-5 py-3 text-base sm:text-lg font-medium
+               text-cyan-900 ring-1 ring-cyan-700/20 hover:ring-cyan-700/30
+               bg-white/90 backdrop-blur-[1px] hover:bg-cyan-50
+               focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white transition"
+      >
+        Voir les études de cas
+      </a>
+    </div>
+
+    <!-- trust line -->
+    <p class="text-[11px] sm:text-xs text-slate-500 mt-2">
+      Réponse en 24h · Paris & Remote · Packs transparents Starter / Growth / Premium
+    </p>
+  </div>
+
+  <!-- scroll hint -->
+  <div class="absolute bottom-6 hidden sm:flex flex-col items-center text-slate-500 text-xs">
+    <span class="mb-1">Faites défiler</span>
+    <span class="animate-bounce" aria-hidden="true">▼</span>
+  </div>
+</section>
+
+
+<!-- METHOD -->
+<section
+  id="method"
+  class="relative px-6 py-20 overflow-hidden bg-gradient-to-b from-white via-slate-50 to-slate-100"
+  aria-labelledby="method-title"
+>
+  <div class="relative max-w-screen-xl mx-auto space-y-20">
+    <!-- Intro -->
+    <div class="text-center">
+      <p class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide text-cyan-700">
+        <span class="h-1.5 w-1.5 rounded-full bg-cyan-600"></span>
+        Méthode
+      </p>
+      <h2 id="method-title" class="mt-2 text-3xl sm:text-4xl font-black tracking-tight text-slate-900">
+        Brique par brique — du sens jusqu’au
+        <span class="bg-gradient-to-r from-slate-900 to-cyan-700 bg-clip-text text-transparent">lancement</span>
+      </h2>
+      <p class="mx-auto mt-3 max-w-2xl text-sm sm:text-base text-slate-600">
+        Un chemin clair et rapide : de l’idée à la mise en ligne, sans jargon ni complications.
+      </p>
+    </div>
+
+    <!-- Rows -->
+    <div class="space-y-24">
+      <!-- 1. Cadrage & Prototypes -->
+      <article class="grid md:grid-cols-2 gap-10 items-center">
+        <!-- Texte -->
+        <div class="space-y-4">
+          <h3 class="text-2xl font-bold text-slate-900">⚡ Cadrage & prototypes rapides</h3>
+          <p class="text-slate-600">
+            Donner forme à vos idées en quelques jours, pour tester avant d’investir.
+          </p>
+          <ul class="list-disc pl-5 text-slate-700 space-y-2">
+            <li>Ateliers courts pour clarifier vision, priorités et messages clés.</li>
+            <li>Parcours visibles en 24–48 h pour se projeter tout de suite.</li>
+            <li>Prototype interactif “comme en vrai” pour aligner l’équipe.</li>
+            <li>Tests utilisateurs rapides, retours concrets et actionnables.</li>
+            <li>Décision avec des critères simples, partagés par tous.</li>
+          </ul>
+          <p class="mt-3 text-xs text-slate-500">
+            <span class="font-semibold">Stack &amp; outils :</span>
+            Figma (wireframes &amp; prototype), Notion (docs &amp; décisions), tests utilisateurs à distance,
+            landing pages avec tracking (UTM, events).
+          </p>
         </div>
+        <!-- Visuel -->
+        <div class="relative"></div>
+      </article>
 
-        <!-- motto -->
-        <h1
-          class="text-balance text-4xl sm:text-6xl md:text-7xl font-black leading-tight tracking-tight
-                 text-transparent bg-clip-text bg-gradient-to-br from-slate-900 via-slate-800 to-slate-600
-                 drop-shadow-[0_1px_0_rgba(0,0,0,0.06)]"
-        >
-          ⚡ Not an Agency. Not a Coder.<br class="hidden sm:block" />
-          <span class="underline decoration-cyan-600/60 underline-offset-4">A Craftsman who ships your vision.</span>
-        </h1>
-
-        <p class="mt-3 sm:mt-4 text-pretty text-base sm:text-xl text-slate-600 font-light tracking-wide max-w-2xl mx-auto">
-          Je clarifie votre vision et je la construis brique par brique : identité, interfaces, code et mise en ligne — sans blabla.<br>
-          <span class="text-sm text-slate-500">For solo-founders, studios or lean teams: a coherent, custom build that feels like <em>you</em>, not like a template.</span>
-        </p>
-
-        <!-- CTA -->
-        <div class="mt-8 flex flex-wrap justify-center gap-3 sm:gap-4">
-          <a
-            href="#contact"
-            class="inline-flex items-center justify-center rounded-full px-6 py-3 text-base sm:text-lg font-semibold text-white
-                   bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700
-                   focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white
-                   transition-transform duration-200 will-change-transform hover:scale-[1.03] active:scale-[0.99]"
-          >
-            🚀 Discutons ensemble<br><span class="text-xs font-normal pl-1">Let’s talk</span>
-          </a>
-
-          <a
-            href="#work"
-            class="inline-flex items-center justify-center rounded-full px-5 py-3 text-base sm:text-lg font-medium
-                   text-cyan-800 hover:text-cyan-900 ring-1 ring-cyan-700/20 hover:ring-cyan-700/30
-                   bg-white hover:bg-cyan-50
-                   focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white transition"
-          >
-            Voir mes projets<br><span class="text-xs font-normal pl-1">See my work</span>
-          </a>
+      <!-- 2. Identité & Visuels (inversé desktop) -->
+      <article class="grid md:grid-cols-2 gap-10 items-center md:[&>*:first-child]:order-2 md:[&>*:last-child]:order-1">
+        <!-- Texte -->
+        <div class="space-y-4">
+          <h3 class="text-2xl font-bold text-slate-900">🎨 Identité & visuels</h3>
+          <p class="text-slate-600">
+            Une image forte et cohérente, directement exploitable sur tous vos supports.
+          </p>
+          <ul class="list-disc pl-5 text-slate-700 space-y-2">
+            <li>Logo pensé pour site, applis, réseaux et print.</li>
+            <li>Palette et typographies accessibles et durables.</li>
+            <li>Mini-charte claire pour vos équipes et partenaires.</li>
+            <li>Modèles prêts pour posts, stories et vidéos.</li>
+            <li>Fichiers optimisés pour web et impression.</li>
+          </ul>
+          <p class="mt-3 text-xs text-slate-500">
+            <span class="font-semibold">Stack &amp; outils :</span>
+            Figma (styles, variables, composants), exports SVG/WebP/AVIF, gabarits social,
+            handoff “dev-ready”.
+          </p>
         </div>
+        <!-- Visuel -->
+        <div class="relative"></div>
+      </article>
 
-        <!-- soft risk-reversal -->
-        <p class="text-xs text-slate-500 mt-2">
-          Réponse sous 24h · Paris & Remote · Facturation claire par paliers
-        </p>
-      </div>
-
-      <div class="absolute bottom-6 z-10 hidden sm:flex flex-col items-center text-slate-500 text-xs">
-        <span class="mb-1">Scrollez<br><span class="text-[10px]">Scroll down</span></span>
-        <span class="animate-bounce">▼</span>
-      </div>
-    </section>
-
-    <!-- ANTI-TEMPLATE / ANTI-AGENCY STRIP -->
-    <section class="px-6 py-12 bg-white">
-      <div class="max-w-screen-xl mx-auto">
-        <div class="grid sm:grid-cols-3 gap-4">
-          <div class="p-5 rounded-2xl ring-1 ring-slate-200 bg-slate-50">
-            <h3 class="font-semibold text-slate-800">Template</h3>
-            <p class="mt-2 text-sm text-slate-600">Rapide & pas cher, mais impersonnel.<br>Votre marque se dilue.</p>
-          </div>
-          <div class="p-5 rounded-2xl ring-1 ring-slate-200 bg-slate-50">
-            <h3 class="font-semibold text-slate-800">Agency</h3>
-            <p class="mt-2 text-sm text-slate-600">Process lourd, équipes séparées, coûteux.<br>La cohérence se perd.</p>
-          </div>
-          <div class="p-5 rounded-2xl ring-2 ring-cyan-300 bg-gradient-to-br from-cyan-50 to-white">
-            <h3 class="font-semibold text-slate-900">Craftsman</h3>
-            <p class="mt-2 text-sm text-slate-700">Une vision, du concept au code.<br>Identité unique, mise en ligne en semaines.</p>
-          </div>
+      <!-- 3. Interfaces & Apps -->
+      <article class="grid md:grid-cols-2 gap-10 items-center">
+        <!-- Texte -->
+        <div class="space-y-4">
+          <h3 class="text-2xl font-bold text-slate-900">🧩 Interfaces & apps</h3>
+          <p class="text-slate-600">
+            Concevoir et développer des écrans fluides et utilisables, du prototype à la version pilotable.
+          </p>
+          <ul class="list-disc pl-5 text-slate-700 space-y-2">
+            <li>Maquettes ergonomiques adaptées mobile &amp; desktop.</li>
+            <li>Composants réutilisables pour évoluer vite et proprement.</li>
+            <li>Accessibilité intégrée (contrastes, clavier, focus visibles).</li>
+            <li>Performances optimisées pour un site/app rapide.</li>
+            <li>Formulaires, langues et paiements intégrés si besoin.</li>
+            <li>Documentation simple pour garder la main.</li>
+          </ul>
+          <p class="mt-3 text-xs text-slate-500">
+            <span class="font-semibold">Stack &amp; outils :</span>
+            Vue&nbsp;3 + Tailwind, Pinia, i18n, formulaires (contact/réservation/paiement),
+            Storybook ou docs intégrées.
+          </p>
         </div>
-      </div>
-    </section>
+        <!-- Visuel -->
+        <div class="relative"></div>
+      </article>
 
-    <!-- METHOD: BRICK BY BRICK -->
-    <section class="px-6 py-16 bg-gradient-to-b from-white via-slate-50 to-slate-100">
-      <div class="max-w-screen-xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl font-bold text-center text-slate-900">Méthode — brique par brique</h2>
-        <ol class="mt-8 grid md:grid-cols-4 gap-6">
-          <li class="p-5 rounded-xl ring-1 ring-slate-200 bg-white">
-            <span class="text-xs font-semibold text-cyan-700">1. Vision</span>
-            <h3 class="mt-1 font-semibold">Brand research</h3>
-            <p class="mt-2 text-sm text-slate-600">Ateliers rapides, ton de voix, promesse, angle.</p>
-          </li>
-          <li class="p-5 rounded-xl ring-1 ring-slate-200 bg-white">
-            <span class="text-xs font-semibold text-cyan-700">2. Identity</span>
-            <h3 class="mt-1 font-semibold">Logo & DA</h3>
-            <p class="mt-2 text-sm text-slate-600">Logo, palette, typographies, mini-charte.</p>
-          </li>
-          <li class="p-5 rounded-xl ring-1 ring-slate-200 bg-white">
-            <span class="text-xs font-semibold text-cyan-700">3. Interface</span>
-            <h3 class="mt-1 font-semibold">UX/UI & Protos</h3>
-            <p class="mt-2 text-sm text-slate-600">Wireframes, maquettes Figma, micro-interactions.</p>
-          </li>
-          <li class="p-5 rounded-xl ring-1 ring-slate-200 bg-white">
-            <span class="text-xs font-semibold text-cyan-700">4. Ship</span>
-            <h3 class="mt-1 font-semibold">Code & Launch</h3>
-            <p class="mt-2 text-sm text-slate-600">Vue/Tailwind, Stripe, SEO, déploiement Netlify.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
+      <!-- 4. Mise en ligne & Suivi (inversé desktop) -->
+      <article class="grid md:grid-cols-2 gap-10 items-center md:[&>*:first-child]:order-2 md:[&>*:last-child]:order-1">
+        <!-- Texte -->
+        <div class="space-y-4">
+          <h3 class="text-2xl font-bold text-slate-900">🚀 Mise en ligne & suivi</h3>
+          <p class="text-slate-600">
+            Connecter vos outils, déployer et mesurer les résultats — puis améliorer en continu.
+          </p>
+          <ul class="list-disc pl-5 text-slate-700 space-y-2">
+            <li>Paiements, abonnements, comptes utilisateurs.</li>
+            <li>Prévisualisations avant publication pour éviter les surprises.</li>
+            <li>SEO technique pour être trouvé sur Google.</li>
+            <li>Images/vidéos optimisées pour tous les écrans.</li>
+            <li>Stats claires pour suivre visites et conversions.</li>
+            <li>Suivi post-lancement : corrections et itérations rapides.</li>
+          </ul>
+          <p class="mt-3 text-xs text-slate-500">
+            <span class="font-semibold">Stack &amp; outils :</span>
+            Stripe, Firebase/Firestore (auth, data, storage), Netlify/Vercel (déploiement),
+            Cloudinary/Sharp (médias), GA4 &amp; GSC (analytics/SEO), JSON-LD &amp; sitemaps.
+          </p>
+        </div>
+        <!-- Visuel -->
+        <div class="relative"></div>
+      </article>
+    </div>
 
-    <!-- SERVICES (keep your section but now sits after method) -->
-    <ServicesSection :items="services" />
+    <!-- CTA -->
+    <div class="mt-4 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+      <a
+        href="/contact"
+        class="inline-flex items-center justify-center rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-slate-800"
+      >
+        Teardown gratuit de votre flow (15&nbsp;min)
+      </a>
+      <a
+        href="/#newsletter"
+        class="inline-flex items-center justify-center rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 ring-1 ring-slate-200 shadow-sm hover:text-slate-900 hover:ring-slate-300"
+      >
+        Recevoir la checklist&nbsp;CTR
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+
+
 
     <!-- WORK -->
     <section id="work" class="py-20 px-6 text-slate-800 bg-gradient-to-b from-white via-slate-50 to-slate-100">
@@ -179,6 +291,7 @@ import { defineAsyncComponent } from 'vue'
 import { useHead } from '@vueuse/head'
 import CaseStudyRow from '../components/CaseStudyRow.vue'
 import ServicesSection from '../components/ServicesSection.vue'
+import ProcessUnderlineLoop from '../components/ProcessUnderlineLoop.vue'
 
 const ContactForm = defineAsyncComponent(() => import('../components/ContactForm.vue'))
 
@@ -221,41 +334,56 @@ const services = [
 ]
 
 const projects = [
-  {
-    title: 'StoryEngines',
-    client: 'StoryEngines',
-    year: '2025',
-    url: 'https://www.storyengines.tv',
-    poster: '/previews/storyengines-960x600.jpg',
-    summary: 'Site vitrine premium pour une société de production : typo ciné, DA sur-mesure, logo dédié.',
-    stack: ['Vue.js','Tailwind','Decap CMS','Netlify Identity','SEO optimisé'],
-    flip: false,
-    // optional: add a short "impact" line your CaseStudyRow can display if supported:
-    impact: 'Positionnement haut de gamme, site live en quelques semaines.'
-  },
-  {
+ {
     title: 'Funcenter',
     client: 'Funcenter',
     year: '2025',
     url: 'https://www.funcenter-lacduder.com',
-    poster: '/previews/funcenter-960x600.jpg',
+
+    // 👇 LOCAL POSTER + SRCSET (served from /public)
+    image: '/cs/funcenter/homepage-2025-hero-1200w.webp',   // default src
+    ambientImage: '/cs/funcenter/homepage-2025-hero-1920w.webp', // backdrop source
+    srcset: {
+      350:  '/cs/funcenter/homepage-2025-hero-350w.webp',
+      700:  '/cs/funcenter/homepage-2025-hero-700w.webp',
+      1200: '/cs/funcenter/homepage-2025-hero-1200w.webp',
+      1920: '/cs/funcenter/homepage-2025-hero-1920w.webp',
+      2880: '/cs/funcenter/homepage-2025-hero-2880w.webp'
+    },
+
+    // (optional) choose the card’s box ratio; 16/10 reads great in your UI
+    aspect: '16/10',
+
     summary: 'Refonte complète d’un club nautique : nouvelles vidéos, UI modernisée, formulaires, refonte logo.',
     stack: ['Vue.js','Tailwind','Video','SEO avancé','Netlify CI/CD'],
     flip: true,
     impact: 'Amélioration SEO & conversion (devis / réservations).'
   },
-  // Optionally expose Antishirt as “proof of ecosystem shipping”
-  {
-    title: 'Antishirt',
-    client: 'Antishirt',
-    year: '2025',
-    url: 'https://antishirt.fr', // update if different
-    poster: '/previews/antishirt-960x600.jpg', // add asset if you have one
-    summary: 'De la satire YouTube à une marque e-commerce prête à vendre : identité, design, Stripe, production.',
-    stack: ['Brand','Vue.js','Tailwind','Stripe','Cloudinary'],
-    flip: false,
-    impact: 'Écosystème complet construit en mode sprint.'
-  }
+{
+  title: 'StoryEngines',
+  client: 'StoryEngines',
+  year: '2025',
+  url: 'https://www.storyengines.tv',
+
+  // 👇 Local poster + responsive srcset (used by CaseStudyRow.vue)
+  image: '/cs/storyengines/storyengines-homepage-2025-hero-1200w.webp',       // default src
+  ambientImage: '/cs/storyengines/storyengines-homepage-2025-hero-1920w.webp', // blurred backdrop source
+  srcset: {
+    350:  '/cs/storyengines/storyengines-homepage-2025-hero-350w.webp',
+    700:  '/cs/storyengines/storyengines-homepage-2025-hero-700w.webp',
+    1200: '/cs/storyengines/storyengines-homepage-2025-hero-1200w.webp',
+    1920: '/cs/storyengines/storyengines-homepage-2025-hero-1920w.webp',
+    2880: '/cs/storyengines/storyengines-homepage-2025-hero-2880w.webp'
+  },
+
+  // Optional: force the card’s box ratio (your component defaults to 16/10 already)
+  aspect: '16/10',
+
+  summary: 'Site vitrine premium pour une société de production : typo ciné, DA sur-mesure, logo dédié.',
+  stack: ['Vue.js','Tailwind','Decap CMS','Netlify Identity','SEO optimisé'],
+  flip: false,
+  impact: 'Positionnement haut de gamme, site live en quelques semaines.'
+},
 ]
 
 useHead({
