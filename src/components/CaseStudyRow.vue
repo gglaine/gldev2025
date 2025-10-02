@@ -3,12 +3,12 @@
     <div class="group relative rounded-2xl p-[2px]">
       <div class="relative rounded-[14px] overflow-hidden bg-slate-800 border border-slate-900">
 
-        <!-- PLACEHOLDER (no remote site yet) -->
+        <!-- PLACEHOLDER (no remote site fetch) -->
         <div v-if="!showPreview" class="relative">
           <!-- aspect shim (keeps layout stable) -->
           <div :style="{ paddingTop: aspectPadding }"></div>
 
-          <!-- AMBIENT LAYERS (behind everything) -->
+          <!-- AMBIENT LAYERS (behind everything, local-only) -->
           <div class="ambient-img" :style="ambientImageStyle" aria-hidden="true"></div>
           <div class="ambient-grad" :style="ambientGradStyle" aria-hidden="true"></div>
 
@@ -18,20 +18,25 @@
               class="relative rounded-xl shadow-xl ring-1 ring-black/5 overflow-hidden flex items-center justify-center will-change-transform"
               :style="cardStyle"
             >
-              <img
-                v-if="cardImageURL"
-                :src="cardImageURL"
-                :srcset="cardImageSrcset"
-                sizes="(min-width:1024px) 960px, 100vw"
-                :alt="`${project.title} – aperçu ${device}`"
-                class="snap-img"
-                crossorigin="anonymous"
-                loading="lazy"
-                decoding="async"
-                referrerpolicy="no-referrer"
-                @error="onCardImageError"
-              />
+              <!-- Local-only picture -->
+              <picture v-if="hasAnyLocal">
+                <source v-if="avifSet" :srcset="avifSet" type="image/avif" sizes="(min-width:1024px) 960px, 100vw" />
+                <source v-if="webpSet" :srcset="webpSet" type="image/webp" sizes="(min-width:1024px) 960px, 100vw" />
+                <img
+                  :src="fallbackSrc"
+                  :srcset="rasterSet || undefined"
+                  sizes="(min-width:1024px) 960px, 100vw"
+                  :alt="`${project.title} – aperçu ${device}`"
+                  class="snap-img"
+                  loading="lazy"
+                  decoding="async"
+                  @error="onCardImageError"
+                />
+              </picture>
+
+              <!-- Skeleton if no local image or it failed -->
               <div v-else class="w-full h-full bg-gradient-to-br from-slate-100 to-slate-200 animate-pulse" />
+
               <div class="absolute inset-0 pointer-events-none" :style="bezelStyle"></div>
             </div>
           </div>
@@ -166,46 +171,55 @@ const deviceOptions: { key: Device; label: string; icon: string }[] = [
 ]
 function setDevice(k: Device){ device.value = k }
 
-/* ---------- Preferred local images (fallback to snapshots) ---------- */
-function wpShot(url: string, w: number) {
-  return `https://s.wordpress.com/mshots/v1/${encodeURIComponent(url)}?w=${w}`
-}
-const hasLocalImage = computed(() => Boolean(props.project?.image))
+/* ---------- Local-only images (now supports `poster`) ---------- */
+const hasLocalImage = computed(() =>
+  Boolean(
+    props.project?.image ||
+    props.project?.poster ||               // 👈 NEW
+    props.project?.srcsetAvif ||
+    props.project?.srcsetWebp ||
+    props.project?.srcsetJpg ||
+    props.project?.posterSrcset           // 👈 NEW (string | array | record)
+  )
+)
 const hasAmbientImage = computed(() => Boolean(props.project?.ambientImage))
-const preferLocal = ref(true) // flips to false if the local image errors
 
-function buildSrcset(srcset?: string | string[] | Record<number, string>) {
-  if (!srcset) return ''
-  if (typeof srcset === 'string') return srcset
-  if (Array.isArray(srcset)) return srcset.join(', ')
-  return Object.entries(srcset).map(([w, url]) => `${url} ${w}w`).join(', ')
+function toSrcset(input?: string | string[] | Record<number, string>) {
+  if (!input) return ''
+  if (typeof input === 'string') return input
+  if (Array.isArray(input)) return input.join(', ')
+  return Object.entries(input).map(([w, url]) => `${url} ${w}w`).join(', ')
 }
 
-const cardImageURL = computed(() => {
-  if (hasLocalImage.value && preferLocal.value) return String(props.project.image)
-  if (props.project?.url) {
-    const w = device.value === 'mobile' ? 460 : 1200
-    return wpShot(props.project.url, w)
-  }
-  return ''
-})
+const avifSet   = computed(() => toSrcset(props.project?.srcsetAvif))
+const webpSet   = computed(() => toSrcset(props.project?.srcsetWebp))
+const jpgSet    = computed(() => toSrcset(props.project?.srcsetJpg))
+const rasterSet = computed(() => toSrcset(props.project?.posterSrcset || props.project?.srcsetJpg)) // jpg/webp as <img> srcset
 
-const cardImageSrcset = computed<string | undefined>(() => {
-  if (hasLocalImage.value && preferLocal.value && props.project?.srcset) {
-    return buildSrcset(props.project.srcset) // ensure this returns string
-  }
-  if ((!hasLocalImage.value || !preferLocal.value) && props.project?.url) {
-    const w1 = device.value === 'mobile' ? 360 : 800
-    const w2 = device.value === 'mobile' ? 720 : 1600
-    return `${wpShot(props.project.url, w1)} ${w1}w, ${wpShot(props.project.url, w2)} ${w2}w`
-  }
-  return undefined
-})
+function pickLargest(rec?: Record<number,string>) {
+  if (!rec) return ''
+  const widths = Object.keys(rec).map(Number).filter(n => !Number.isNaN(n))
+  if (!widths.length) return ''
+  const maxw = Math.max(...widths)
+  return rec[maxw] || ''
+}
 
+const fallbackSrc = computed(() =>
+  // Prefer explicit srcset fallbacks, then single file
+  pickLargest(props.project?.srcsetAvif) ||
+  pickLargest(props.project?.srcsetWebp) ||
+  pickLargest(props.project?.srcsetJpg)  ||
+  String(props.project?.image || props.project?.poster || '')   // 👈 poster supported
+)
+
+/* If the chosen local image fails, hide picture & show skeleton */
+const imageFailed = ref(false)
+const hasAnyLocal = computed(() => Boolean(fallbackSrc.value) && !imageFailed.value)
+
+/* Ambient: local only (ambientImage -> fallbackSrc -> none) */
 const ambientURL = computed(() => {
   if (hasAmbientImage.value) return String(props.project.ambientImage)
-  if (hasLocalImage.value && preferLocal.value) return String(props.project.image)
-  if (props.project?.url) return wpShot(props.project.url, 1400)
+  if (hasLocalImage.value)   return fallbackSrc.value
   return ''
 })
 
@@ -214,7 +228,7 @@ const ambientImageStyle = computed<CSSProperties>(() => ({
 }))
 
 /* ---------- Palette sampling from ambient ---------- */
-const ambientPrimary = ref('#0b1220')   // fallback if sampling fails
+const ambientPrimary = ref('#0b1220')
 const ambientAccent  = ref('#1c2a3a')
 
 watch(ambientURL, async (src) => {
@@ -225,16 +239,16 @@ watch(ambientURL, async (src) => {
     ambientPrimary.value = primary
     ambientAccent.value  = accent
   } catch {
-    // likely CORS-tainted canvas for snapshots → keep fallbacks
+    // local files rarely fail; keep fallbacks
   }
 }, { immediate: true })
 
 function loadImageForPalette(src: string): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
     const i = new Image()
-    i.crossOrigin = 'anonymous'
     i.onload = () => resolve(i)
     i.onerror = reject
+    // cache-busting keeps palette in sync while iterating
     i.src = src + (src.includes('?') ? '&' : '?') + 'cb=' + Date.now()
   })
 }
@@ -247,11 +261,7 @@ function extractPalette(img: HTMLImageElement) {
   ctx.drawImage(img, 0, 0, W, H)
 
   let data: Uint8ClampedArray
-  try {
-    data = ctx.getImageData(0, 0, W, H).data
-  } catch (e) {
-    throw e
-  }
+  try { data = ctx.getImageData(0, 0, W, H).data } catch (e) { throw e }
 
   let rSum=0, gSum=0, bSum=0, n=0
   let maxSat = 0, accR=30, accG=40, accB=50
@@ -277,7 +287,6 @@ function extractPalette(img: HTMLImageElement) {
 
   const primary = rgbToHex(pR, pG, pB)
   const accent  = rgbToHex(aR, aG, aB)
-
   return { primary, accent }
 }
 
@@ -285,10 +294,7 @@ function rgbToHex(r: number, g: number, b: number): string {
   return '#' + [r,g,b].map(v => v.toString(16).padStart(2,'0')).join('')
 }
 
-function tweak(
-  r: number, g: number, b: number,
-  o: { sat: number; dim: number }
-): [number, number, number] {
+function tweak(r: number, g: number, b: number, o: { sat: number; dim: number }): [number, number, number] {
   const toHsl = (r:number,g:number,b:number)=>{
     r/=255; g/=255; b/=255
     const mx=Math.max(r,g,b), mn=Math.min(r,g,b), d=mx-mn
@@ -371,13 +377,11 @@ const bezelStyle: CSSProperties = {
 
 /* ---------- Image error handling ---------- */
 function onCardImageError() {
-  // If the local image fails once, fallback to snapshot
-  if (preferLocal.value) preferLocal.value = false
+  imageFailed.value = true
 }
 </script>
 
 <style scoped>
-/* snapshot/local image inside the card should never cover */
 .snap-img{
   width: 100%;
   height: 100%;
@@ -385,8 +389,6 @@ function onCardImageError() {
   object-position: center;
   display: block;
 }
-
-/* blurred snapshot/local backdrop */
 .ambient-img{
   position: absolute;
   inset: 0;
@@ -397,8 +399,6 @@ function onCardImageError() {
   pointer-events: none;
   z-index: 0;
 }
-
-/* color gradient from sampled colors */
 .ambient-grad{
   position: absolute;
   inset: 0;

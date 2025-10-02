@@ -23,7 +23,7 @@ const projects = [
     client: 'StoryEngines',
     year: '2025',
     url: 'https://www.storyengines.tv',
-    poster: '/cs/storyengines-pg-base.jpg',
+    poster: '/cs/storyengines/storyengines-homepage-2025-hero-700w.webp',
     summary: 'Site vitrine premium pour une société de production : typo ciné, DA sur-mesure, logo dédié.',
     stack: ['Vue.js','Tailwind','Decap CMS','Netlify Identity','SEO optimisé'],
     flip: false,
@@ -36,25 +36,12 @@ const projects = [
     client: 'Funcenter',
     year: '2025',
     url: 'https://www.funcenter-lacduder.com',
-    poster: '/previews/funcenter-960x600.jpg',
+    poster: '/cs/funcenter/homepage-2025-hero-700w.webp',
     summary: 'Refonte complète d’un club nautique : nouvelles vidéos, UI modernisée, formulaires, refonte logo.',
     stack: ['Vue.js','Tailwind','Video','SEO avancé','Netlify CI/CD'],
     flip: true,
     impact: 'Amélioration SEO & conversion (devis / réservations).'
   },
-  // Optionally expose Antishirt as “proof of ecosystem shipping”
-  {
-     slug: 'antishirt',
-    title: 'Antishirt',
-    client: 'Antishirt',
-    year: '2025',
-    url: 'https://antishirt.fr', // update if different
-    poster: '/previews/antishirt-960x600.jpg', // add asset if you have one
-    summary: 'De la satire YouTube à une marque e-commerce prête à vendre : identité, design, Stripe, production.',
-    stack: ['Brand','Vue.js','Tailwind','Stripe','Cloudinary'],
-    flip: false,
-    impact: 'Écosystème complet construit en mode sprint.'
-  }
 ]
 
 useHead({

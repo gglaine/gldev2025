@@ -152,7 +152,9 @@ Designer & Développeur — identité et produit, main dans la main
           </p>
         </div>
         <!-- Visuel -->
-        <div class="relative"></div>
+        <div class="relative bg-red">
+          <img src="/images/id-grid.png" alt="Exemples de logos, palettes et templates réseaux sociaux" class="rounded-lg bg-contain w-full " />
+        </div>
       </article>
 
       <!-- 3. Interfaces & Apps -->
@@ -206,22 +208,6 @@ Designer & Développeur — identité et produit, main dans la main
         <!-- Visuel -->
         <div class="relative"></div>
       </article>
-    </div>
-
-    <!-- CTA -->
-    <div class="mt-4 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-      <a
-        href="/contact"
-        class="inline-flex items-center justify-center rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-slate-800"
-      >
-        Teardown gratuit de votre flow (15&nbsp;min)
-      </a>
-      <a
-        href="/#newsletter"
-        class="inline-flex items-center justify-center rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 ring-1 ring-slate-200 shadow-sm hover:text-slate-900 hover:ring-slate-300"
-      >
-        Recevoir la checklist&nbsp;CTR
-      </a>
     </div>
   </div>
 </section>
