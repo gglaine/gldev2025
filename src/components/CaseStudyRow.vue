@@ -42,7 +42,7 @@
           </div>
 
           <!-- device chips -->
-          <div class="absolute left-3 top-3 flex gap-2">
+          <div class="absolute left-3 flex gap-2">
             <button
               v-for="d in deviceOptions"
               :key="d.key"

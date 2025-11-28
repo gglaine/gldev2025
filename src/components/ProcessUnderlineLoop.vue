@@ -5,7 +5,7 @@
     :aria-label="ariaLabel"
   >
     <!-- le texte -->
-    <span class="relative z-10 text-3xl font-semibold tracking-tight">
+    <span class="relative z-10 text-4xl font-semibold tracking-tight">
       {{ text }}
     </span>
 

@@ -10,9 +10,9 @@
   aria-labelledby="hero-title"
 >
   <!-- background image -->
-  <div class="absolute inset-0 bg-[url('/images/coca.png')] bg-cover bg-center bg-no-repeat opacity-10 md:opacity-15"></div>
+  <div class="absolute inset-0 bg-[url('/images/gldev-logo.png')] bg-contain bg-center bg-no-repeat md:opacity-45"></div>
   <!-- light gradient overlay for readability -->
-  <div class="absolute inset-0 bg-gradient-to-b from-white/70 via-white/40 to-white/10 md:from-white/60 md:via-white/30 md:to-transparent"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-white/70 via-white/40 to-white/10 md:from-white/10 md:via-white/10 md:to-transparent"></div>
 
   <!-- decorative underline loop -->
   <ProcessUnderlineLoop />
@@ -126,15 +126,17 @@ Designer & Développeur — identité et produit, main dans la main
             landing pages avec tracking (UTM, events).
           </p>
         </div>
-        <!-- Visuel -->
-        <div class="relative"></div>
+           <!-- Visuel -->
+        <div class="relative bg-red">
+          <img src="/images/id-grid.png" alt="Exemples de logos, palettes et templates réseaux sociaux" class="rounded-lg bg-contain w-full " />
+        </div>
       </article>
 
       <!-- 2. Identité & Visuels (inversé desktop) -->
       <article class="grid md:grid-cols-2 gap-10 items-center md:[&>*:first-child]:order-2 md:[&>*:last-child]:order-1">
         <!-- Texte -->
         <div class="space-y-4">
-          <h3 class="text-2xl font-bold text-slate-900">🎨 Identité & visuels</h3>
+          <h3 class="text-2xl font-bold text-slate-900">Identité & visuels</h3>
           <p class="text-slate-600">
             Une image forte et cohérente, directement exploitable sur tous vos supports.
           </p>
@@ -153,7 +155,7 @@ Designer & Développeur — identité et produit, main dans la main
         </div>
         <!-- Visuel -->
         <div class="relative bg-red">
-          <img src="/images/id-grid.png" alt="Exemples de logos, palettes et templates réseaux sociaux" class="rounded-lg bg-contain w-full " />
+          <img src="/images/supergrid.png" alt="Exemples de logos, palettes et templates réseaux sociaux" class="rounded-lg bg-contain w-full " />
         </div>
       </article>
 
@@ -180,7 +182,10 @@ Designer & Développeur — identité et produit, main dans la main
           </p>
         </div>
         <!-- Visuel -->
-        <div class="relative"></div>
+            <!-- Visuel -->
+        <div class="relative bg-red">
+          <img src="/cs/storyengines/analytics/audit-seo.png" alt="Exemples de logos, palettes et templates réseaux sociaux" class="rounded-lg bg-contain w-full " />
+        </div>
       </article>
 
       <!-- 4. Mise en ligne & Suivi (inversé desktop) -->
@@ -206,7 +211,10 @@ Designer & Développeur — identité et produit, main dans la main
           </p>
         </div>
         <!-- Visuel -->
-        <div class="relative"></div>
+            <!-- Visuel -->
+        <div class="relative bg-red">
+          <img src="/cs/funcenter/analytics/perf-chart-2025.png" alt="Exemples de logos, palettes et templates réseaux sociaux" class="rounded-lg bg-contain w-full " />
+        </div>
       </article>
     </div>
   </div>
